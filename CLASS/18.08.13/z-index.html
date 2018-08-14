@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>z-index</title>
+</head>
+<body>
+
+<style>
+	.apple, .orange, .plum, .tomato {
+		width: 100px;
+		height: 100px;
+		position: absolute;
+	}
+
+	.apple {
+		background: green;
+		left: 0px;
+		top: 0px;
+		z-index: 4;
+	}
+
+	.orange {
+		background: orange;
+		left: 10px;
+		top: 10px;
+		z-index: 3;
+	}
+
+	.plum {
+		background: purple;
+		left: 20px;
+		top: 20px;
+		z-index: 2;
+	}
+
+	.tomato {
+		background: red;
+		left: 30px;
+		top: 30px;
+		z-index: 1;
+	}
+</style>
+
+<div class="apple"></div>
+<div class="orange"></div>
+<div class="plum"></div>
+<div class="tomato"></div>
+
+</body>
+</html>
