@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pseudo</title>
+</head>
+<body>
+
+<style>
+	.apple {
+		width: 50px;
+		height: 50px;
+		background: green;
+		display: inline-block;
+		vertical-align: top;
+		transition: all, 1s;
+	}
+
+	.apple:first-child {
+		background: pink;
+	}
+
+	.apple:last-child {
+		background: yellow;
+	}
+
+	.apple:nth-child(even) {
+		background: red;
+	}
+
+	.apple:hover {
+		width: 100px;
+		height: 100px;
+		background: yellow;
+		border-radius: 50%;
+	}
+
+	/*
+	odd - нечетные
+	even - четные
+	3n - ко всем третьим. Так же можно 4n, 5n и т.д.
+	*/
+
+	.dollar:before {
+		content: "😊";
+	}
+	.ruble:before {
+		content: "Р.";
+	}
+	.euro:before {
+		content: "©";
+	}
+
+	.currency {
+		color: purple;
+	}
+</style>
+
+<div>
+	<div class="apple"></div>
+	<div class="apple"></div>
+	<div class="apple"></div>
+	<div class="apple"></div>
+	<div class="apple"></div>
+	<div class="apple"></div>
+	<div class="apple"></div>
+	<div class="apple"></div>
+	<div class="apple"></div>
+	<div class="apple"></div>
+</div>
+
+<div class="dollar currency">1000</div>
+<div class="ruble currency">2000</div>
+<div class="euro currency">3000</div>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Transform</title>
+</head>
+<body>
+
+<style>
+	.apple, .orange, .plum, .melon {
+		width: 100px;
+		height: 100px;
+		display: inline-block;
+		transition: all, 1s;
+	}
+	.apple {
+		background: green;
+	}
+	.apple:hover {
+		transform: rotateZ(360deg);
+	}
+	.orange {
+		background: orange;
+	}
+	.orange:hover {
+		transform: scale(2);
+	}
+	.plum {
+		background: purple;
+	}
+	.plum:hover {
+		transform: skew(20deg);
+	}
+	.melon {
+		background: yellow;
+	}
+	.melon:hover {
+		transform: translate(50px,50px);
+	}
+</style>
+
+<div class="apple"></div>
+<div class="orange"></div>
+<div class="plum"></div>
+<div class="melon"></div>
+
+</body>
+</html>
