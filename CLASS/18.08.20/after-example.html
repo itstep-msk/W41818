@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<style>
+.apple,.melon {
+	width: 50px;
+	height: 50px;
+	background: green;
+	border-radius: 50%;
+}
+.orange {
+	width: 30px;
+	height: 30px;
+	background: orange;
+	border-radius: 50%;
+}
+
+.plum {
+	width: 50px;
+	height: 50px;
+	background: purple;
+	border-radius: 50%;
+}
+
+.plum:after {
+	content:"";
+	display: block;
+	width: 30px;
+	height: 30px;
+	background: orange;
+	border-radius: 50%;
+}
+</style>
+	
+<div class="apple">
+	<div class="orange"></div>
+</div>
+<div class="plum"></div>
+<div class="plum"></div>
+</body>
+</html>

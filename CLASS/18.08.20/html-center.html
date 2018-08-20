@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HTML center</title>
+</head>
+<body>
+<div class="apple"></div>
+<div class="orange-fruit">
+	<div class="orange"></div>
+</div>
+<div class="plum-fruit">
+	<div class="plum"></div>
+</div>
+<div class="melon"></div>
+<div class="watermelon-fruit">
+	<div class="watermelon"></div>
+</div>
+<br>
+<div class="potato-vegetable">
+	<div class="potato"></div>
+</div>
+<style>
+	.apple, .orange, .plum, .melon, .watermelon, .potato {
+		width: 50px;
+		height: 50px;
+	}
+	/* Центрирование блочных элементов */
+	.apple {
+		background: green;
+		margin: 0 auto;
+	}
+	/* Центрирование строчных элемент */
+	.orange {
+		background: orange;
+		display: inline-block;
+	}
+	.orange-fruit {
+		text-align: center;
+	}
+	/* Центрирование абсолютных элементов */
+	.plum-fruit {
+		position: relative;
+		height: 50px;
+	}
+	.plum {
+		background: purple;
+		position: absolute;
+		left: 0;
+		right: 0;
+		margin: auto;
+	}
+	/* Центрирование через transform */
+	.melon {
+		background: yellow;
+		transform: translateX(-50%);
+    	margin-left: 50%;
+	}
+	/* Центрирование через табличную верстку */
+	.watermelon-fruit {
+		border: 1px solid black;
+		height: 100px;
+		display: table-cell;
+		vertical-align: middle;
+
+	}
+	.watermelon {
+		background: red;
+	}
+	/* Центрирование через flexbox */
+	.potato-vegetable {
+		display: flex;
+		justify-content: center;
+	}
+	.potato {
+		background: #b79268;
+	}
+
+</style>
+</body>
+</html>
