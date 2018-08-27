@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Media</title>
+</head>
+<body>
+
+<div class="fruits">
+	<div class="apple"></div>
+	<div class="orange"></div>
+	<div class="melon"></div>
+</div>
+
+<style>
+.apple {
+	width: 50px;
+	height: 50px;
+	background: green;
+	display: inline-block;
+	transition: all, .25s;
+}
+.orange {
+	width: 50px;
+	height: 50px;
+	background: orange;
+	display: inline-block;
+	transition: all, .25s;
+}
+.melon {
+	width: 50px;
+	height: 50px;
+	background: yellow;
+	display: inline-block;
+	transition: all, .25s;
+}
+@media (max-width: 1000px) {
+	.apple {
+		width: 100px;
+		display: block;
+	}
+	.orange {
+		display: block;
+	}
+	.melon {
+		display: block;
+	}
+}
+
+@media (max-width: 800px) {
+	.apple {
+		width: 200px;
+	}
+	.orange {
+		width: 150px;
+	}
+	.melon {
+		width: 100px;
+	}
+}
+
+@media (max-width: 700px) {
+	.apple, .orange, .melon {
+		width: 200px;
+		transform: rotateZ(360deg);
+	}
+}
+</style>
+
+<div class="potato">
+	Картошечка
+</div>
+
+<div class="text-print">
+	Текст для печати
+</div>
+
+<style>
+@media print {
+	.potato {
+		display: none;
+	}
+	.text-print {
+		font-size: 100px;
+	}
+}
+</style>
+
+</body>
+</html>
