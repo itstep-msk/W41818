@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Преобразование типов</title>
+</head>
+<body>
+
+<script>
+	// Числа
+	var n = "5";
+	console.log(+n); // 5
+	console.log(Number(n)); // 5
+	console.log(parseInt(n)); // 5
+	console.log(parseFloat(n)); // 5
+
+	console.log(Number("123.456")) // 123.456
+	console.log(parseInt("123.456")) // 123
+	console.log(parseFloat("123.456")) // 123.456
+
+	// Строки
+	var a = 10;
+	console.log(String(a)); // "10"
+	console.log(typeof String(a)); // "string"
+
+	// Логические
+	console.log(Boolean(0)); // false
+	console.log(!!0); // false
+	console.log(Boolean(1)); // true
+	console.log(Boolean("")); // false
+	console.log(Boolean("Кукусики")); // true
+	console.log(Boolean(null)); // false
+	console.log(Boolean(undefined)); // false
+	console.log(Boolean(NaN)); // false
+
+</script>
+
+</body>
+</html>

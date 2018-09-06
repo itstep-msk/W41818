@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<script>
+	//alert("Привет мир");
+	//var confirmResult = confirm("Вам есть 18 лет ?");
+	//console.log(confirmResult);
+
+	//var promptResult = prompt("Вам че-то там ?");
+	//console.log(promptResult); // результат возвращается ввиде строки
+
+	//var a = prompt("Введите число A");
+	//var b = prompt("Введите число B");
+
+	//var c = +a + +b;
+	//console.log(c);
+	/*
+	if(confirmResult) {
+		console.log("Вы ответили ДА");
+	} else {
+		console.log("Вы ответили НЕТ");
+	}
+
+	var year = prompt("Введите какое-нибудь число...");
+
+	if(year != "10") {
+		console.log("Вы ввели число, которое НЕ равно 10")
+	} else {
+		console.log("Вы ввели число, которое РАВНО!!!!! 10!!!!!")
+	}
+
+	var apple = 5;
+
+	if(apple > 10) {
+		console.log("Яблок меньше 10");
+	} else {
+		console.log("Яблок больше 10");
+	}
+
+	var appleResult =  apple > 10 ? "Яблок меньше 10" : "Яблок больше 10"
+
+	console.log(appleResult);
+	*/
+	var year = 2011;
+
+	if(year == 2010) {
+		console.log("Выбран год: 2010")
+	} else if(year == 2011) {
+		console.log("Выбран год: 2011")
+	} else if(year == 2012) {
+		console.log("Выбран год: 2012")
+	} else {
+		console.log("Не выбран допустимый год")
+	}
+
+	// Логические операторы
+	// ИЛИ ||
+	console.log(true || true); // true
+	console.log(false || true); // true
+	console.log(true || false); // true
+	console.log(false || false);  // false
+
+	var hour = 9;
+	if(hour < 10 || hour > 19) {
+		console.log("Офис до 10 или после 18 закрыт");
+	}
+
+	// И &&
+	console.log(true && true) // true
+	console.log(false && true) // false
+	console.log(true && false) // false
+	console.log(false && false) // false
+
+	var hour = 10;
+	var minutes = 30;
+
+	if(hour == 10 && minutes == 30) {
+		console.log("Время 10:30");
+	}
+
+	// НЕ !
+	var apple = true;
+	console.log(apple); // true
+	console.log(!apple); // false
+
+</script>
+</body>
+</html>

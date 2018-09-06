@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Основные операторы</title>
+</head>
+<body>
+
+<script>
+/*
+5 + 5
+"5" - операнд,
+"+" - оператор
+
+Унарный оператор - оператор с одним операндом
+Пример:
+var x = 5;
+x = -x; // -5
+
+var y = -5;
+y = +y // 5
+
+Бинарный оператор - оператор с двумя операндами
+5 + 5;
+5 + -5;
+
+*/
+
+	var apple = "Яблоки ";
+	var orange = "Апельсины";
+
+	console.log(apple + orange);
+
+	var melon = "5";
+	var watermelon = "10";
+	// Если один из операндов строка - все выражение будет строкой
+
+	console.log(melon + watermelon) // "510"
+	console.log(+melon + +watermelon) // 15;
+
+	// https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Operator_Precedence
+
+	// У оператора "=" низкий приоритет.
+	var plum = 5 + 5 // 10
+
+	/*
+	"=" - оператор присваивания
+	"==" - оператор сравнения // "5" == 5 // true
+	"===" - оператор строгово сравнения // "5" === 5 // false 5 === 5 true
+	*/
+
+	var coca = 10;
+	// coca = coca + 1;
+	coca++;
+	console.log(coca) // 11
+	coca--;
+	console.log(coca) // 10
+
+	var gera = ++coca;
+	console.log(gera) // 11
+	console.log(coca) // 11
+
+	var gera = coca++;
+	console.log(gera) // 11
+	console.log(coca) // 12
+
+</script>
+
+</body>
+</html>
