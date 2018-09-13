@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Объекты</title>
+</head>
+<body>
+
+<script>
+	var a = 5;
+	var arc = [1,2,3,4,5,true,"Строка"];
+	arc[0] // 1
+	arc[6] // "Строка"
+	var build = [[1,2,3],[[3,4,5],[10,20,30]]];
+	build[1] // [[3,4,5],[10,20,30]]
+	build[1][1] // [10,20,30]
+	build[1][1][0] // 10
+
+	var basket = {
+		apple: [1,2,3],
+		orange: {
+			yellow: [3,4,5],
+			blue: [10,20,30]
+		},
+		plum: function() {
+			console.log(2+2);
+			console.log(this.apple)
+		}
+	}
+	/*
+	Объект состоит из парных значений ключ-значение
+	Синтаксис 
+	{
+		Ключ: значение,
+		Ключ: значение,
+		Ключ: значение
+	}
+	В значение ключа может быть любой тип данных.
+	Доступ к ключу объекта осуществляется через ТОЧКУ
+	*/
+	basket.orange.blue[0];
+	basket.plum();
+
+	basket.banana = 100;
+
+	console.log(basket);
+
+	delete basket.apple;
+
+	console.log(basket);
+
+	var dog = {
+		name: "Hindy",
+		age: 65,
+		tail: true,
+		say: function(text) {
+			console.log(this.name + ":" + text);
+		},
+		"return": 321,
+		"Ключ на кирилице": 123
+	}
+
+	console.log(dog.name); // "Hindy"
+	console.log(dog["name"]); // "Hindy"
+	console.log(dog["return"]); // 321
+
+	dog.say("Кря-кря");
+
+	for(item in dog) {
+		//console.log(item)
+		console.log(dog[item]);
+	}
+	
+	console.log(dog.say);
+
+	var user = {
+		name: "Таня",
+		age: 20,
+		size: {
+			top: 90,
+			middle: 60,
+			bottom: 90
+		}
+	}
+
+	////////////////////////////////
+    // СПОСОБ  1
+	var Vasya = {
+		age: 20,
+		high: 190,
+		wieght: 100
+	}
+
+	var Matvey = {
+		age: 24,
+		high: 175,
+		wieght: 80
+	}
+
+	console.log(Matvey);
+
+	// СПОСОБ 2
+	function makePerson(a,h,w) {
+		this.age = a;
+		this.high = h;
+		this.wieght = w;
+	}
+
+	var Vasya = new makePerson(20,190,100);
+	var Matvey = new makePerson(24,175,80);
+
+	console.log(Matvey);
+
+
+</script>
+</body>
+</html>
