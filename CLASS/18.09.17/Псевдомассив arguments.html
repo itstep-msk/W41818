@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Псевдомассив arguments</title>
+</head>
+<body>
+
+<script>
+	function getUnlimitedArguments() {
+		console.log(arguments)
+		var argArray = [];
+		for(var i = 0; i < arguments.length; i++) {
+			argArray[i] = arguments[i]
+		}
+
+		console.log(argArray)
+	}
+
+	getUnlimitedArguments(1,2,3,4,5,"Hello", true, "world");
+</script>
+
+</body>
+</html>

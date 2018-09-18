@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Объекты, перебор свойств</title>
+</head>
+<body>
+
+<script>
+var user = {
+	name: "Alex",
+	age: 99,
+	gender: "male"
+}
+// for(ПеременнаяДляРезультата in ОбъектКоторыйПеребираем)
+// Для переменной var не нужен.
+for(item in user) {
+	console.log("Ключ: " + item);
+	console.log("Значение: " + user[item]);
+}
+/*
+var a = 5;
+var b = a;
+a = 10;
+console.log("B = " + b)
+*/
+
+// Объект имеет доступ по ссылке
+var dog = user;
+console.log(dog)
+dog.name = "Собакен";
+
+console.log(user);
+
+var cat = {};
+
+for(item in user) {
+	cat[item] = user[item];
+	// Слева создание ключа, справа значение по ключу присиваивается в левый объект
+}
+
+console.log(cat)
+cat.name = "Шкварка";
+console.log(cat)
+console.log(user)
+
+</script>
+
+</body>
+</html>

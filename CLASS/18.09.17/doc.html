@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Документы</title>
+</head>
+<body>
+	<style>
+		.apple {
+			transition: all, .25s;
+			display: inline-block;
+		}
+
+		.pear {
+			transform: rotateZ(360deg);
+			font-size: 20px;
+			background: green;
+		}
+	</style>
+
+<div class="apple">Яблоки</div>
+
+<script>
+	/*
+	document.querySelector("div")
+	document.querySelector("h1")
+	document.querySelector(".apple.orange")
+	document.querySelector(".apple .plum")
+	*/
+	var apple = document.querySelector(".apple");
+
+	console.log( apple ) // Получили html элемент
+	console.log( apple.innerHTML ) // Получили значение html элемента
+	apple.innerHTML = "Апельсины" // Поменяли значение html элемента
+	console.log( apple.innerHTML ) // Получили значение html элемента 
+
+	apple.addEventListener("click", function() {
+		this.innerHTML = "Груша"
+		console.log(this.classList);
+		this.classList.add("pear");
+		console.log(this.classList);
+		/*
+		
+		this.style.background = "green";
+		this.style.fontSize = "20px";
+		this.style.transform = "rotateZ(360deg)";
+		*/
+	})
+
+	/* addEventListener("", function(){}) */
+</script>
+
+</body>
+</html>

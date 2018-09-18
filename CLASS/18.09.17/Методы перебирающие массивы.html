@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Методы перебиращие массивы</title>
+</head>
+<body>
+
+<script>
+	var fruits = ["apple", "orange", "plum"];
+
+	// Является аналогом for() разница в том, что меньше кода
+	fruits.forEach(function(item, index) {
+		console.log(item, index)
+	})
+
+	// Формирует новый массив на основе внутреннего условия. В данном условии если значение массива fruits больше 4 символов то оно возвращается.
+	var newFruits = fruits.filter(function(item, index) {
+		if(item.length > 4) {
+			return item;
+		}
+	})
+
+	console.log(newFruits) // ["apple", "orange"], plum не попал так как он равен 4 символам а не больше их
+
+	// Метод map трансормирует текущий массив и возвращает его
+	var newFruitsTransform = fruits.map(function(item, index) {
+		return item.length
+	})
+
+	console.log(newFruitsTransform) // [5, 6, 4]
+	//console.log(newFruitsTransform) // ["apple", "orange", undefined]
+
+	// indexOf если находит значение в массиве то возвращает его позицию в массиве(индекс).
+	// Если не находит то -1
+
+	console.log(fruits.indexOf("orange"))// 1
+	console.log(fruits.indexOf("plum")) // 2
+	console.log(fruits.indexOf("banana")) // -1
+
+	
+
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Массивы</title>
+</head>
+<body>
+
+<script>
+	var fruits = ["apple", "orange", "plum"];
+	var numer = [1,2,3,4,5];
+
+	console.log(fruits[0])
+	console.log(numer[0])
+
+	for(var i = 0; i < fruits.length; i++) {
+		console.log(fruits[i])
+	}
+
+	// Методы массива
+	fruits.push("banana") // ["apple", "orange", "plum", "banana"];
+	fruits.pop(); // Удаление последнего индекса
+	console.log(fruits) // ["apple", "orange", "plum"]
+	fruits.shift() // Удаляет первый элемент массива
+	console.log(fruits) // ["orange", "plum"]
+	fruits.unshift("tomato") // Добавляет в начало массива
+	console.log(fruits) // ["tomato", "orange", "plum"]
+	console.log(fruits.length) // 3
+	console.log("Привет мир".split("")) // ["П", "р", "и", "в", "е", "т", " ", "м", "и", "р"]
+
+	/*
+	Метод split позволяет разбить строку на массив
+	в качестве аргумента - разделитель.
+	Сам разделитель в массиве не учавствует.
+	*/
+	console.log("Привет мир".split("ив")) // ["Пр", "ет мир"]
+
+	console.log("У попа была собака".split(" ")) // ["У", "попа", "была", "собака"]
+
+	var sobaka = "У попа была собака";
+
+	sobaka = sobaka.split(" ");
+	
+	/*
+	Метод join позволяет собрать из массива - строку.
+	В качестве аргумента можно передавать разделитель.
+	*/
+	console.log(sobaka.join("*"))
+    // Привет => тевирП
+
+    // Методы можно вызвать каскадно. Без сохранения в переменную.
+	console.log("Привет".split("").reverse().join(""))
+
+	
+
+
+</script>
+</body>
+</html>
