@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>querySelector and other</title>
+</head>
+<body>
+
+<style>
+	.apple {
+		width: 50px;
+		height: 50px;
+		background: green;
+		border-radius: 50%;
+		display: inline-block;
+	}
+</style>
+
+<div class="fruit">
+	<div class="apple"></div>
+	<div class="apple"></div>
+	<div class="apple"></div>
+	<div class="apple"></div>
+	<div class="apple"></div>
+</div>
+
+<script>
+	var apple = document.querySelector(".apple") // вернет первый элемент
+
+	var apples = document.querySelectorAll(".apple") // вернет все элементы ввиде массива.
+
+	/*
+	Прежче чем работать с элементами их надо перебрать черзе цикл так как apples это "массив" с элементами
+	*/
+	for(var i = 0; i < apples.length; i++) {
+		// apples[i] возвращает элемент, с которым уже можно работать
+		apples[i].addEventListener("click", function() {
+			// в this хранится текущий элемент, на который срабатывает событие
+			console.log(this)
+			if(this.style.background == "yellow") {
+				this.style.background = "green";
+			} else {
+				this.style.background = "yellow";
+			}
+		})
+	}
+
+	console.log(apples);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DOM навигация</title>
+</head>
+<body>
+
+<div class="fruit">Фрукты
+	<div class="apple">Яблоки
+		<div class="yellow">Желетые</div>
+		<div class="orange">Оранжевые</div>
+		<div class="worm">Червь</div>
+	</div>
+	<div class="plum">Слива</div>
+</div>
+
+<script>
+	var apple = document.querySelector(".apple");
+
+	console.log(apple.parentNode) // <div class="fruit"></div>
+	console.log(apple.children) // <div class="yellow">Желетые</div> <div class="orange">Оранжевые</div> <div class="worm">Червь</div>
+
+	console.log(apple.nextElementSibling) // <div class="plum">Слива</div>
+	console.log(apple.nextElementSibling.previousElementSibling) // <div class="apple">
+
+	console.log(apple.firstElementChild) // <div class="yellow">Желетые</div>
+	console.log(apple.lastElementChild) // <div class="worm">Червь</div>
+
+	for(var i = 0; i < apple.children.length; i++) {
+		apple.children[i].style.border = "1px solid"
+	}
+
+</script>
+
+</body>
+</html>

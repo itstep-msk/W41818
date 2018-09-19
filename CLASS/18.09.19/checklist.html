@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Checklist</title>
+</head>
+<body>
+
+<style>
+	body {
+		margin: 0;
+	}
+	.text {
+		width: 80%;
+		box-sizing: border-box;
+		padding: 10px;
+	}
+
+	.button {
+		width: 20%;
+		margin-left: -4px;
+		padding: 10px;
+
+	}
+
+	.task {
+		background: yellow;
+		padding: 10px;
+	}
+</style>
+
+<input class="text">
+<input class="button" type="submit" value="+">
+<div class="list"></div>
+
+<script>
+	var text = document.querySelector(".text");
+	var button = document.querySelector(".button");
+	var list = document.querySelector(".list");
+
+	button.addEventListener("click", function() {
+		list.innerHTML += "<div class='task'>" + text.value + "</div>"
+		// list.innerHTML += text.value тоже самое что и
+		// list.innerHTML = list.innerHTML + text.value
+		// innerHTML забирает/вставляет значение у обычных html элементов
+		// value забирает/вставляет значение у полей формы
+	})
+</script>
+
+</body>
+</html>
