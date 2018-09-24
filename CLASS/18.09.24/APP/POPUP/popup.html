@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Popup</title>
+</head>
+<body>
+
+<style>
+	.shadow {
+		background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5))
+	}
+
+	.popup {
+		background: green;
+		width: 100px;
+		height: 100px;
+		display: none;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+	}
+</style>
+
+<div class="link">Открыть</div>
+
+<div class="popup"></div>
+
+<script>
+	var popup = document.querySelector(".popup");
+	var link = document.querySelector(".link");
+
+	link.addEventListener("click", function() {
+		popup.style.display = "block";
+		document.body.classList.add("shadow");
+	})
+
+	document.addEventListener("click", function(e) {
+		if(e.target != popup && e.target != link) {
+			popup.style.display = "none";
+			document.body.classList.remove("shadow");
+		}
+	})
+	/*
+	popup.addEventListener("click", function() {
+		this.style.display = "none";
+		document.body.classList.remove("shadow");
+	})
+	*/
+	// classList возвращает массив из классов у элемента
+	// методы у classList: add, remove, toggle
+	console.log(popup.classList)
+</script>
+
+</body>
+</html>

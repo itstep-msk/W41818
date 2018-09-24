@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TABS</title>
+</head>
+<body>
+
+<style>
+body {
+	margin: 0;
+}
+
+.tabs {
+	width: 500px;
+	margin: 0 auto;
+}
+
+.tabs-link {
+	display: inline-block;
+	padding: 10px 15px;
+	border: 1px solid;
+}
+
+.tabs-content {
+	padding: 10px 15px;
+	border: 1px solid;
+	display: none;
+}
+
+.active {
+	background: #ccc;
+}
+</style>
+
+<div class="tabs">
+	<div class="tabs-links">
+		<div class="tabs-link" data-link-id="0">Яблоки</div>
+		<div class="tabs-link" data-link-id="1">Апельсины</div>
+		<div class="tabs-link" data-link-id="2">Груши</div>
+	</div>
+	<div class="tabs-contents">
+		<div class="tabs-content">Текст про яблоки</div>
+		<div class="tabs-content">Текст про апельсины</div>
+		<div class="tabs-content">Текст про груши</div>
+	</div>
+</div>
+
+<script>
+	var link = document.querySelectorAll(".tabs-link");
+	var content = document.querySelectorAll(".tabs-content");
+	var id;
+
+	for(var i = 0; i < link.length; i++) {
+		link[i].addEventListener("click", function() {
+			// Получаем значение атрибута. Пример: "1"
+			id = this.getAttribute("data-link-id");
+
+			// Скрываем все content'ы
+			for(var j = 0; j < content.length; j++) {
+				content[j].style.display = "none";
+			}
+			// Обращаемся к элементу по id. Пример: content["2"] // <div class="tabs-content">Текст про груши</div>
+			content[id].style.display = "block";
+		})
+	}
+</script>
+
+</body>
+</html>
