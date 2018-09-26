@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Преобразование объектов</title>
+</head>
+<body>
+
+<script>
+	var fruits = {
+		apple: "Яблоки"
+	}
+
+	alert(fruits) // "[object Object]" object - тип данных. Object - класс, от которого наследуется объект
+
+	console.log(+fruits) // NaN
+	console.log(fruits);
+
+	/*
+	Если объект пытаются преобразовать к строке - вызывается метод toString
+	Если объект пытаются преобразовать к числу - вызывается метод valueOf
+	*/
+
+	fruits.toString = function() {
+		return "Переписали метод toString";
+	}
+
+	fruits.valueOf = function() {
+		return 123;
+	}
+
+	alert(fruits) // "Переписали метод toString"
+	console.log(+fruits) // 123
+
+	// Как сейчас
+	console.log([1,2,3] + [4,5,6]) // "1,2,34,5,6"
+
+	// Как надо
+	//console.log([1,2,3] + [4,5,6]) // 21
+
+	var gusya = [1,2,3];
+	var lom = [4,5,6];
+
+	gusya.toString = function() {
+		var result = 0;
+		for(var i = 0; i < this.length; i++) {
+			result += this[i];
+		}
+
+		return result;
+	}
+
+	console.log(+gusya); // 6
+
+	lom.toString = gusya.toString;
+
+	console.log(gusya + lom) // 21
+
+	Array.prototype.toString = function() {
+		var result = 0;
+		for(var i = 0; i < this.length; i++) {
+			result += this[i];
+		}
+
+		return result;
+	}
+
+	console.log([3,4,5,6] + [7,8,9,1]);
+</script>
+
+</body>
+</html>

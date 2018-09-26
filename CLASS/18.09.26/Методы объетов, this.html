@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Методы объектов, this</title>
+</head>
+<body>
+
+<script>
+	
+	var user = {
+		name: "Матвей",
+		sayHi: function() {
+			console.log("Привет " + this.name)
+		}
+	}
+
+	user.sayHi()
+	
+
+	// Копирование тело функции
+	var kolbaska = { firstName: "Михаил" }
+	var sosiska = { firstName: "Олег" }
+
+	function getName() {
+		console.log("Текущие имя: " + this.firstName)
+	}
+
+	console.log(getName)// ƒ getName() { console.log(this.firstName) }
+
+	kolbaska.vedro = getName;
+	sosiska.shapel = getName;
+
+	kolbaska.vedro(); // "Текущие имя: Михаил"
+	sosiska.shapel(); // "Текущие имя: Олег"
+</script>
+
+</body>
+</html>
