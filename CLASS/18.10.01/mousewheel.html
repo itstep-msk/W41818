@@ -1,0 +1,9 @@
+<script>
+	var result = 0;
+
+	document.addEventListener("mousewheel", function(e) {
+		//console.log(e.deltaY);
+		result += e.deltaY;
+		console.log(result / 100)
+	})
+</script>

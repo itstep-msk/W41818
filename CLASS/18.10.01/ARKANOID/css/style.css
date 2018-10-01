@@ -1,0 +1,27 @@
+body {
+	margin: 0;
+}
+
+.field {
+	width: 400px;
+	height: 200px;
+	border: 1px solid;
+	margin: 50px auto;
+	position: relative;
+}
+
+.ball {
+	width: 10px;
+	height: 10px;
+	background: black;
+	border-radius: 50%;
+	position: absolute;
+}
+
+.player {
+	width: 50px;
+	height: 10px;
+	bottom: 0;
+	background: green;
+	position: absolute;
+}
