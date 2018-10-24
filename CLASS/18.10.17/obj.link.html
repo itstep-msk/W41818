@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ссылк ана объект</title>
+</head>
+<body>
+
+<script>
+	var fruits = {
+		apple: 10
+	}
+
+	// Скопировали ссылку на объект fruits
+	var vegetables = fruits;
+	/*
+	console.log(vegetables) // {apple: 10}
+	vegetables.apple = 20;
+	console.log(fruits) // {apple: 20}
+	*/
+	for(item in fruits) {
+		vegetables[item] = fruits[item]
+	}
+
+	console.log(vegetables) // {apple: 10}
+</script>
+</body>
+</html>

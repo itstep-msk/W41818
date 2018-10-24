@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>call, apply, bind</title>
+</head>
+<body>
+
+<script>
+	function hello() {
+		return "Hello world";
+	}
+
+	console.log(hello()) // "Hello world"
+	console.log(hello.call()) // "Hello world"
+	console.log(hello.apply()) // "Hello world"
+
+	/////////////////////////////////////////
+	var user = {
+		name: "Alex"
+	}
+
+	function helloFromObject(a) {
+		return "Hello " + this.name + " a:" + a;
+	}
+	// CALL
+	console.log(helloFromObject()) // "Hello a: undefined";
+	console.log(helloFromObject(1)) // "Hello a: 1";
+	console.log(helloFromObject.call(user)) // "Hello Alex a: undefined"
+	console.log(helloFromObject.call(user,1)) // "Hello Alex a: 1"
+	/*
+	Метод call принимает в качестве первого аргумента объект. Это тот
+	объект куда будет ссылаться this. Благодаря call мы меняем контекст this
+	Вторые и последующие аргументы это обычные аргументы функции
+	*/
+	// APPLY
+	console.log(helloFromObject.apply(user,["apple"])) // "Hello Alex a: apple"
+
+	console.log(helloFromObject.bind(user,"fromBind")) // bind не вызывает функцию
+
+	console.log(helloFromObject.bind(user,"fromBind")()) // Вызываем
+	// "Hello Alex a: fromBind"
+
+	function helloInterval() {
+		console.log("Hello " + this.name);
+	}
+
+	setInterval(helloInterval.bind(user),1000);
+</script>
+</body>
+</html>

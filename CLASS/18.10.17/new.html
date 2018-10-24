@@ -1,0 +1,22 @@
+<script>
+	function Animal(n) {
+		this.name = n;
+		this.say = function(text) {
+			console.log(this.name + ": " + text);
+		}
+	}
+
+	/*
+	var dog = {
+		name: "Sharik",
+		say: function(text) {
+			console.log(this.name + ": " + text);
+		}
+	}
+	dog.name // "Sharik"
+	dog.say("Wow") // "Sharik: Wow";
+	*/
+
+	var dog = new Animal("Sharik");
+
+</script>

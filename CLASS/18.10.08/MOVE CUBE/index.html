@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Drag and drop</title>
+</head>
+<body>
+
+<style>
+	body {
+		margin: 0;
+	}
+
+	.apple {
+		width: 100px;
+		height: 100px;
+		background: green;
+		position: absolute;
+	}
+</style>
+
+<div class="apple"></div>
+
+<script>
+	var apple = document.querySelector(".apple");
+	var access = true;
+	var x;
+	var y;
+ 
+	apple.addEventListener("mousedown", function(e) {
+		x = e.x - apple.offsetLeft;
+		y = e.y - apple.offsetTop;
+
+		access = true;
+
+		apple.addEventListener("mousemove", function(e) {
+			if (access) {
+				apple.style.left = (e.clientX - x) + "px";
+				apple.style.top = (e.clientY - y) + "px";
+				console.log("e.clientX:" + e.clientX, "x:" + x, "clientX - x:" + (e.clientX-x))
+			}
+		})
+
+	})
+
+	apple.addEventListener("mouseup", function() {
+		access = false;
+	})
+</script>
+
+</body>
+</html>

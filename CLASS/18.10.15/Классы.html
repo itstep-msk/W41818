@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Классы</title>
+</head>
+<body>
+
+<script>
+	function Animals(n, a) {
+		this.legs = 4;
+		this.head = 1;
+		this.name = n;
+		this.age = a;
+		this.say = function(text) {
+			console.log(this.name + ": " + text)
+		}
+	}
+
+	var dog = new Animals("Sharik", 10);
+	var cat = new Animals("Martroskin", 20);
+
+	console.log(dog) // Animals {legs: 4, head: 1, name: "Sharik", age: 10, say: ƒ}
+	console.log(cat) // Animals {legs: 4, head: 1, name: "MAtroskin", age: 20, say: ƒ}
+
+	console.log(dog.legs) // 4
+	console.log(dog.name) // "Sharik"
+	dog.say("Вуф-вуф"); // "Sharik: Вуф-вуф"
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Классы</title>
+</head>
+<body>
+
+<script>
+	var fruits = {
+		name: "Apple",
+		value: 10
+	}
+	var vegetables = {
+		name: "Potato",
+		value: 20
+	}
+	var metal = {
+		name: "Жаренные гвозьди",
+		value: 30
+	}
+
+	function createObj(n, v) {
+		// var this = {}
+		this.name = n;
+		this.value = v;
+		// return this
+	}
+
+	var fruits = new createObj("Apple", 10)
+	var vegetables = new createObj("Potato", 20)
+	var metal = new createObj("Жаренные гвозьди", 30)
+</script>
+
+</body>
+</html>

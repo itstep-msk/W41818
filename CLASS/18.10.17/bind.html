@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bind</title>
+</head>
+<body>
+
+<div class="apple">Приветствие</div>
+
+<script>
+	var apple = document.querySelector(".apple");
+
+	function hello(name) {
+		console.log("Привет " + name);
+	}
+
+	apple.addEventListener("click", hello); // Привет [Event object]
+	apple.addEventListener("click", hello.bind(null,"Олег"))
+
+</script>
+</body>
+</html>

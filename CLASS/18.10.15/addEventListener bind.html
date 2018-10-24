@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>addEventListener bind</title>
+</head>
+<body>
+
+<div class="left">left</div>
+<div class="right">right</div>
+
+<script>
+	var left = document.querySelector(".left");
+	var right = document.querySelector(".right");
+
+	left.addEventListener("click", whatPress.bind(null, "left"))
+
+	right.addEventListener("click", whatPress.bind(null, "right"))
+
+	function whatPress(side) {
+		console.log("Нажали " + side);
+	}
+</script>
+
+</body>
+</html>

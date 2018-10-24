@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Animals bind</title>
+</head>
+<body>
+
+<div class="cat">Кошак</div>
+<div class="dog">Псина</div>
+<div class="cow">Коровка</div>
+
+<script>
+	var cat = document.querySelector(".cat");
+	var dog = document.querySelector(".dog");
+	var cow = document.querySelector(".cow");
+
+	var Animals = {
+		cat: {
+			name: "Matroskin",
+			age: "10",
+			color: "red"
+		},
+		dog: {
+			name: "Sharik",
+			age: "20",
+			color: "white"
+		},
+		cow: {
+			name: "Burenka",
+			age: "30",
+			color: "yellow"
+		}
+
+	}
+
+	function getDataAnimals() {
+		console.log("Hello, im: " + this.name + " my age: " + this.age + " i hate my " + this.color + " color");
+	}
+	
+	cat.addEventListener("click", getDataAnimals.bind(Animals.cat))
+	dog.addEventListener("click", getDataAnimals.bind(Animals.dog))
+	cow.addEventListener("click", getDataAnimals.bind(Animals.cow))
+
+</script>
+</body>
+</html>

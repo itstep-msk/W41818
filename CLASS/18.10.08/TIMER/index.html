@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TIMER</title>
+</head>
+<body>
+
+<style>
+	body {
+		margin: 0;
+		text-align: center;
+		font-family: Arial;
+		font-size: 50px;
+	}
+	.timer, .minutes, .slash, .seconds {
+	    display: inline-block;
+	}
+</style>
+
+<div class="timer">
+	<div class="minutes"></div>
+	<div class="slash">:</div>
+	<div class="seconds"></div><br>
+	<button class="button">Старт</button>
+</div>
+
+<script>
+	var el = {
+		minutes: document.querySelector(".minutes"),
+	 	seconds: document.querySelector(".seconds"),
+	 	button: document.querySelector(".button")
+	}
+
+	var counts = {
+		minutes: 0,
+		seconds: 0
+	}
+
+	var timer;
+
+	setTimer();
+
+	function setTimer() {
+		el.minutes.innerHTML = "00";
+		el.seconds.innerHTML = "00";
+	}
+
+	function startTimer() {
+
+		if(counts.minutes == 0 && counts.seconds == 0) {
+			clearInterval(timer)
+			counts.minutes = 0;
+			counts.seconds = 0;
+			setTimer()
+			return;
+		}
+	
+		if(counts.seconds == 0) {
+			counts.seconds = 59;
+		}
+		if(counts.seconds == 59) {
+			counts.minutes--;
+		}
+	
+		counts.seconds--;
+
+		el.minutes.innerHTML = counts.minutes;
+		el.seconds.innerHTML = counts.seconds;
+
+		checkNumbers();
+
+	}
+
+	function checkNumbers() {
+		if(el.minutes.innerHTML.length < 2) {
+			el.minutes.innerHTML = "0" + el.minutes.innerHTML;
+		}
+		if(el.seconds.innerHTML.length < 2) {
+			el.seconds.innerHTML = "0" + el.seconds.innerHTML;
+		}
+	}
+
+	timer = setInterval(startTimer, 10)
+
+	function testSetTimer() {
+		counts.minutes = 10;
+		counts.seconds = 30;
+		el.minutes.innerHTML = "10";
+		el.seconds.innerHTML = "30";
+	}
+
+	testSetTimer();
+</script>
+
+</body>
+</html>

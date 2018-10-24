@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Array, Object</title>
+</head>
+<body>
+
+<script>
+	var arr = [1,2,3,4,5];
+	var fruits = {
+		apple: 1,
+		orange: 2,
+		plum: 3
+	}
+
+	for(var i = 0; i < arr.length; i++) {
+		console.log(arr[i]);
+	}
+	// fruits.apple fruits["apple"]
+	for(item in fruits) {
+		console.log(item) // "apple","orange","plum"
+		console.log(fruits[item]) // 1,2,3
+	}
+</script>
+</body>
+</html>
