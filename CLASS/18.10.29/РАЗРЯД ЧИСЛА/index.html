@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Разряд числа</title>
+</head>
+<body>
+
+<input type="range" class="range" min="0" max="10000000">
+<div class="result"></div>
+
+<script>
+	var range = document.querySelector(".range");
+	var result = document.querySelector(".result");
+
+	function getRazyrad(value) {
+		return value.toFixed().replace(/./g, function(n, i, s) {
+			console.log("n: " + n + " i: " + i + " s: " + s);
+			return (s.length - i) % 3 === 0 ? " " + n : n;
+			/*
+			1) 7-0 % 3 != 0 // 1 // 1
+			2) 7-1 % 3 = 0 // " " + 2 // 1 2
+			3) 7-2 % 3 != 0 // 3 // 1 23
+			4) 7-3 % 3 != 0 // 4 // 1 234
+			5) 7-4 % 3 = 0 // " " + 5 // 1 234 5
+			6) 7-5 % 3 != 0 // 6 // 1 234 56
+			7) 7-6 % 3 != 0 // 7 // 1 234 56
+			*/
+		})
+	}
+
+	range.addEventListener("input", function() {
+		result.innerHTML = getRazyrad(+this.value)
+	})
+
+</script>
+</body>
+</html>
