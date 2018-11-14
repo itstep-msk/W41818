@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Классы</title>
+</head>
+<body>
+
+<script>
+	var User01 = {
+		name: "Vasiliy",
+		age: 20,
+		say: function(text) {
+			console.log(this.name + ": " + text)
+		}
+	}
+
+	var User02 = {
+		name: "Matvey",
+		age: 17,
+		say: function(text) {
+			console.log(this.name + ": " + text)
+		}
+	}
+
+	var User03 = {
+		name: "Mikhail",
+		age: 40,
+		say: function(text) {
+			console.log(this.name + ": " + text)
+		}
+	}
+
+	User01.say("Hola");
+	User02.say("Kurva");
+	User03.say("snfdjhfkj");
+
+	function UserTemplate(n,a) {
+		// var this = {}
+		this.name = n;
+		this.age = a;
+		this.say = function(text) {
+			console.log(this.name + ": " + text)
+		}
+		// return this
+	}
+
+	var User04 = new UserTemplate("Vasiliy", 20);
+	var User05 = new UserTemplate("Masha", 30);
+	var User06 = new UserTemplate("Glasha", 40);
+
+	User04.say("Мне норм)");
+
+	function Machine() {
+		var enabled = true;
+
+		this.enable = function() {
+			enabled = true;
+		}
+
+		this.disable = function() {
+			enabled = false;
+		}
+	}
+
+	function CoffeMachine() {
+		// var this = {}
+		// Инкапсулировали переменную waterAmount
+		var waterAmount
+
+		Machine.call(this)
+
+		this.getWaterAmount = function() {
+			return waterAmount;
+		}
+		this.setWaterAmount = function(amount) {
+			if(amount < 0 || amount > 1000) {
+				console.log("Ошибка 5435");
+			} else {
+				waterAmount = amount;
+			}
+		}
+		// return {}
+	}
+
+	var T1000 = new CoffeMachine();
+
+	T1000.setWaterAmount(1000000000);
+	T1000.setWaterAmount(-1000);
+	T1000.setWaterAmount(1000);
+	console.log(T1000.getWaterAmount());
+	console.log(T1000);
+</script>
+
+</body>
+</html>

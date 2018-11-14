@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rocket app</title>
+</head>
+<body>
+
+<script>
+	/*
+		Статичные свойства
+		1) Полезная нагрузка (Payload)
+		2) Орбита (Orbit)
+		3) Топливо (Fuel)
+
+		Методы
+		1) Запуск (launch)
+		2) Отделение ступений (Separation of steps)
+		3) Авария (Crash)
+	*/
+
+	function Rocket(p, f) {
+		var maxPayload = p;
+		var maxFuel = f;
+		var payload = null;
+		var orbit = null;
+		var fuel = null;
+		var self = this;
+		var timer;
+
+		this.setFuel = function(amount) {
+			if(amount == payload*orbit) {
+				fuel = amount;
+			} else {
+				console.log("Некорректное количество топлива");
+			}
+		}
+
+		this.getFuel = function() {
+			return fuel;
+		}
+
+		this.setPayload = function(amount) {
+			if(amount <= maxPayload) {
+				payload = amount;
+			} else {
+				console.log("Недопустимая нагрузка");
+			}
+		}
+
+		this.getPayload = function() {
+			return payload;
+		}
+
+		this.setOrbit = function(amount) {
+			if(amount > maxFuel/payload) {
+				console.log("Некорректная орбита");
+			} else {
+				orbit = amount;
+			}
+		}
+
+		this.launch = function() {
+			this.crash();
+			console.log("Попытка запуска двигателей");
+
+			if(fuel == null) {
+				console.log("Запуск невозможен. Проверьте топливо")
+				return;
+			}
+
+			timer = setInterval(function() {
+				console.log("Количество топлива " + fuel)
+				fuel-=1;
+				if(fuel == (payload*orbit)/20) {
+					self.separationSteps();
+				}
+
+				if(fuel == 0) {
+					clearInterval(timer);
+				}
+			}, 10)
+		}
+
+		this.separationSteps = function() {
+			console.log("Ступень отделилась");
+			this.crash();
+		}
+
+		this.crash = function() {
+			var number = Math.floor(Math.random()*100);
+
+			if(number >= 50) {
+				clearInterval(timer);
+				throw Error("Авария");
+			}
+		}
+	}
+
+	var proton = new Rocket(5, 800);
+
+	proton.setPayload(4);
+	proton.setOrbit(200);
+	proton.setFuel(800);
+	//proton.launch()
+
+	var UR100 = new Rocket(2, 400);
+
+	UR100.setPayload(2);
+	UR100.setOrbit(200);
+	UR100.setFuel(400);
+	UR100.launch();
+</script>
+
+</body>
+</html>
