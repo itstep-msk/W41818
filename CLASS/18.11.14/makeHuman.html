@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>makeHuman</title>
+</head>
+<body>
+
+<style>
+	.badges {
+		font-family: Arial;
+	}
+
+	.badge-item {
+		display: inline-flex;
+		margin-bottom: 10px;
+		padding: 5px;
+    	border: 1px solid #ddd;
+    	width: 250px;
+	}
+
+	.user-pic {
+		background: #ddd;
+   	 	width: 80px;
+    	height: 100px;
+    	padding-left: 10px;
+    	padding-top: 10px;
+	}
+
+	.user-info {
+		padding-left: 10px;
+	}
+
+	.user-name {
+		font-size: 20px;
+    	margin-bottom: 10px;
+   		border-bottom: 1px solid;
+	}
+</style>
+
+<div class="badges"></div>
+
+<script src="faces.js"></script>
+<script>
+	var badges = document.querySelector(".badges");
+	var badgeItem = `
+		<div class="badge-item">
+			<div class="user-pic"></div>
+			<div class="user-info">
+				<div class="user-name"></div>
+				<div class="user-age"></div>
+				<div class="user-height"></div>
+			</div>
+		</div>`;
+	//faces.generate("myDivId");
+	//var face = faces.generate();
+	//console.log(face)
+	var names = ["Александр","Алиса","Матвей","Кирилл","Олег","Михаил","Ярослав","Варвара","София","Ульяна"];
+
+	function Human(name, age, height) {
+		this.name = name;
+		this.age = age;
+		this.height = height;
+	}
+
+	function rand(min, max) {
+		return Math.floor(Math.random()*(max-min)+min)
+	}
+
+	function makeHuman(count) {
+		var humans = [];
+
+		for(var i = 0; i < count; i++) {
+			humans.push(new Human(
+				names[rand(0, names.length-1)], 
+				rand(18,60), 
+				rand(140,200)
+				));
+			// Добавление карточки
+			badges.innerHTML+=badgeItem;
+			// Находим все карточки, обращаемся к конкретной по индексу и добавляем атрибут id (user0, user1, user2,...)
+			badges.querySelectorAll(".user-pic")[i].setAttribute("id","user" + i);
+			// Обращаемся по id'шнику и добавляем изображение
+			faces.generate("user" + i);
+
+			var userNames = badges.querySelectorAll(".user-name");
+			var userAges = badges.querySelectorAll(".user-age");
+			var userHeights = badges.querySelectorAll(".user-height");
+
+			userNames[i].innerHTML = humans[i].name;
+			userAges[i].innerHTML = "Возраст " + humans[i].age;
+			userHeights[i].innerHTML = "Рост " + humans[i].height;
+		}
+
+		//return humans;
+	}
+
+	console.log(makeHuman(10));
+</script>
+</body>
+</html>
