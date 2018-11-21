@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Замыкания</title>
+</head>
+<body>
+
+<script>
+	
+	function generator(n) {
+		var count = n;
+
+		return function () {
+			return count++;	
+		}
+	}
+
+	var gen1 = generator(0); // function () { return count++;	}
+	console.log(gen1()) // 0
+	console.log(gen1()) // 1
+	console.log(gen1()) // 2
+
+	var gen2 = generator(10); // function () { return count++;	}
+	console.log(gen2()) // 10
+	console.log(gen2()) // 11
+	console.log(gen2()) // 12
+
+	setInterval(function() { console.log(gen2()) }, 1000)
+</script>
+
+</body>
+</html>

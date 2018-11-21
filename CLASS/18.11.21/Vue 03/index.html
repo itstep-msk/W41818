@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue.js</title>
+</head>
+<body>
+
+<div id="app">
+	<div v-if="country == 'Russia'">Россия</div>
+	<div v-if="country == 'Belarusian'">Беларусь</div>
+	<div v-if="count > 10">Покажется если больше 10. Текущие значение:{{ count }}</div>
+	<div v-if="count < 10">Покажется если меньше 10. Текущие значение:{{ count }}</div>
+</div>
+
+<script src="vue.min.js"></script>
+<script>
+	var app = new Vue({
+		el: "#app",
+		data: {
+			country: "Russia",
+			count: 0
+		}
+	})
+</script>
+</body>
+</html>

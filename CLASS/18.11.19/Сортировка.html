@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Сортировка</title>
+</head>
+<body>
+
+<script>
+	var n = [4,5,65,76,233,23,432,4,1];
+	var person = [
+				{name: "Alex", age: 30},
+				{name: "Kirill", age: 27},
+				{name: "Oleg", age: 19}
+			];
+
+	function mySort(value) {
+		return function(objA, objB) {
+			return objA[value] - objB[value]
+		}
+	}
+
+	var newPerson = person.sort(mySort("age"));
+
+	console.log(newPerson)
+	//var newPerson = person.sort(function(objA, objB) {
+	//	return objA["age"] - objB["age"];
+	//})
+
+
+	//var wtfArray = n.sort();
+	//console.log(wtfArray); // [1, 23, 233, 4, 4, 432, 5, 65, 76]
+
+	//console.log(n)
+	var newN = n.sort(function(a, b) {
+		return b-a;
+	})
+
+	//console.log(newN)
+
+
+
+</script>
+
+</body>
+</html>

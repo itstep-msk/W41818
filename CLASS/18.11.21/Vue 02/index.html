@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue.js</title>
+</head>
+<body>
+<style>
+	.orange {
+		background: orange;
+	}
+	.blue {
+		background: blue;
+	}
+	.yellow {
+		background: yellow;
+	}
+</style>
+
+<div id="app">
+	<div v-bind:title="carrot" v-bind:class="potato">Наведи на меня...</div>
+	<input v-bind:value="cars">
+</div>
+
+<script src="vue.min.js"></script>
+<script>
+	var app = new Vue({
+		el: "#app",
+		data: {
+			carrot: "Морковка",
+			potato: "orange",
+			cars: "bmw"
+		}
+	})
+</script>
+</body>
+</html>

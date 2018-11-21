@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Свойство функций</title>
+</head>
+<body>
+
+<script>
+	function hello() {
+		return "Привет " + hello.customName;
+	}
+
+	hello.customName = "Вася";
+	console.log(hello())
+
+	/* ЗАМЫКАНИЯ, ОБЪЕКТ*/
+
+	function makeCounter() {
+		var count = 1;
+
+		return {
+			getNext: function() {
+				return ++count;
+			},
+			set: function(value) {
+				count = value
+			},
+			get: function() {
+				return count;
+			},
+			reset: function() {
+				count = 1;
+			}
+		}
+	}
+
+	var count01 = makeCounter();
+	console.log(count01)
+
+	count01.getNext();
+	count01.getNext();
+	count01.getNext();
+	console.log(count01.get()); // 4
+	count01.set(10)
+	count01.getNext();
+	count01.getNext();
+	count01.getNext();
+	console.log(count01.get()); // 13
+</script>
+
+</body>
+</html>

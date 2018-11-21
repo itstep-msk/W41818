@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue.js</title>
+</head>
+<body>
+
+<div id="app">
+	<div v-on:click="greeting()">{{ fruits }}</div>
+</div>
+
+<script src="vue.min.js"></script>
+<script>
+	var app = new Vue({
+		el: "#app",
+		data: {
+			fruits: "улыбок тебе дед макаР"
+		},
+		methods: {
+			greeting: function() {
+				this.fruits = this.fruits.split("").reverse().join("");
+			}
+		}
+	})
+</script>
+</body>
+</html>
