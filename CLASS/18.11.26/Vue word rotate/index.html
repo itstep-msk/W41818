@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<style>
+	.card {
+		width: 100px;
+	    height: 100px;
+	    transform: rotateY(0deg);
+	    position: relative;
+	    display: inline-block;
+	}
+	.word {
+		background: yellow;
+	    position: absolute;
+	    z-index: 1;
+	    backface-visibility: hidden;
+	    font-size: 80px;
+	    text-align: center;
+	    font-family: Arial;
+	    line-height: 100px;
+	    width: 100%;
+	    height: 100%;
+	    animation: card 5s infinite linear;
+	    box-shadow: 20px 10px 50px 0px black;
+	    border-radius: 50%;
+	    border: 5px dashed gold;
+	}
+	.plug {
+		width: 100px;
+	    height: 100px;
+	    background: red;
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    animation: card 5s infinite linear;
+	    box-shadow: 20px 10px 50px 0px black;
+	    border-radius: 50%;
+	    border: 5px dashed gold;
+	}
+
+	@keyframes card {
+		0% {
+			transform: rotateY(0deg);
+		}
+
+		100% {
+			transform: rotateY(360deg);
+		}
+	}
+</style>
+
+<div id="app">
+	<input v-model="word">
+	<card v-for="letter in words" v-bind:item="letter"></card>
+</div>
+
+<script src="vue.min.js"></script>
+<script>
+	Vue.component("card", {
+		props: ["item"],
+		template: `
+			<div class="card">
+				<div class="word">{{ item }}</div>
+				<div class="plug"></div>
+			</div>`
+	})
+
+	var app = new Vue({
+		el: "#app",
+		data: {
+			word: "",
+			words: null
+		},
+		watch: {
+			word: function() {
+				this.words = this.word.split("");
+			}
+		}
+	})
+</script>
+</body>
+</html>

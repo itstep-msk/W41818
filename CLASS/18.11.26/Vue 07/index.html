@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue.js</title>
+</head>
+<body>
+
+<div id="app">
+	<food v-for="fruit in fruits" v-bind:item="fruit"></food>
+	<food v-for="vegetable in vegetables" v-bind:item="vegetable"></food>
+</div>
+
+<script src="vue.min.js"></script>
+<script>
+	Vue.component("food", {
+		props: ["item"],
+		template: "<div>Привет из {{ item }}</div>"
+	})
+	/*
+	function food(item) {
+		return "<div>Привет из " + item + "</div>"
+	}
+	food("Яблока"); // Привет из Яблока
+	*/
+
+	var app = new Vue({
+		el: "#app",
+		data: {
+			fruits: ["apple", "orange", "plum"],
+			vegetables: ["potato", "carrot", "cucumber"]
+		}
+	})
+</script>
+</body>
+</html>
