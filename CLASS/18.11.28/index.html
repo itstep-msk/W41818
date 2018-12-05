@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<div class="apple">1</div>
+<div class="apple">2</div>
+<div class="apple">3</div>
+<div class="apple">4</div>
+<div class="apple">5</div>
+
+<div class="orange">1</div>
+<div class="orange">2</div>
+<div class="orange">3</div>
+<div class="orange">4</div>
+<div class="orange">5</div>
+
+<script>
+	var apples = document.querySelectorAll(".apple");
+	var oranges = document.querySelectorAll(".orange");
+
+	var allElements = [];
+
+	for(var i = 0; i < apples.length; i++) {
+		allElements.push(apples[i])
+	}
+
+	for(var i = 0; i < oranges.length; i++) {
+		allElements.push(oranges[i])
+	}
+
+	console.log(allElements)
+</script>
+
+</body>
+</html>

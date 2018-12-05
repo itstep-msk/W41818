@@ -1,0 +1,22 @@
+<script>
+	var values = [10,20,30]
+
+	function makeMatreshka(array) {
+		var rest;
+		var list;
+
+		for(var i = 0; i <= array.length; i++) {
+			rest = list || null;
+			list = {};
+
+			list["value"] = array[i];
+			list["rest"] = rest;
+		}
+
+		return rest;
+
+	}
+
+	console.log(makeMatreshka(values))
+	//{value: 30, rest: {value: 20, rest: {value: 10, rest: null}}}
+</script>

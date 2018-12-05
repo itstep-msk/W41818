@@ -1,0 +1,15 @@
+<script>
+	function hello() {
+		return "Hello"
+	}
+
+	function getClass(arg) {
+		return Object.prototype.toString.call(arg);
+		// Предположим toSting = function() { return this.classes }
+	}
+
+	console.log(getClass("Hello"))
+	console.log(getClass(123))
+	console.log(getClass(function(){}))
+	console.log(getClass([1,2,3]))
+</script>

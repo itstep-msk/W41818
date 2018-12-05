@@ -1,0 +1,26 @@
+<script>
+	var calc = {
+		x: 5,
+		y: 5,
+		sum: function(z) {
+			return this.x + this.y + z;
+		}
+		/*sum: function(z) {
+			console.log("Какой-то новый код");
+			return( function(z) { return calc.x + calc.y + z})(z)
+		*/
+	}
+
+	function monkeyPatch(obj, methodName) {
+		var oldMethod = obj[methodName]; // function(z) { return this.x + this.y + z;  }
+
+		obj[methodName] = function(z) {
+			console.log("Какой-то новый код");
+			return oldMethod.call(obj, z);
+		}
+	}
+	console.log(calc.sum(5)) // 15
+	
+	monkeyPatch(calc, "sum");
+	console.log(calc.sum(5)) // 15
+</script>
