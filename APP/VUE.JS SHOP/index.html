@@ -6,10 +6,10 @@
 </head>
 <body>
 
-<div class="uk-container uk-margin-large-top">
+<div class="uk-container uk-margin-large-top" id="app">
 	<nav class="uk-navbar-container" uk-navbar>
 	    <div class="uk-navbar-left">
-	    	<a href="" class="uk-navbar-item uk-logo">LOGO</a>
+	    	<a href="" class="uk-navbar-item uk-logo">DAEWOO SHOP</a>
 	        <ul class="uk-navbar-nav">
 	            <li><a href="">Главная</a></li>
 	            <li><a href="">Каталог</a></li>
@@ -21,11 +21,11 @@
 	    </div>
 	</nav>
 	<div class="uk-flex uk-margin-top">
-		<input class="uk-input" placeholder="Поиск товаров...">
-		<input class="uk-button uk-button-default" value="Поиск">
+		<input class="uk-input" placeholder="Поиск товаров..." v-model="search">
+		<input type="submit" class="uk-button uk-button-default" value="Поиск">
 	</div>
 	<div class="uk-flex uk-margin-top">
-		<div class="uk-margin-remove" uk-grid>
+		<div class="uk-margin-remove uk-width-1-1" uk-grid>
 			<div class="uk-card uk-card-default uk-card-body uk-width-1-4">
 				<div class="uk-text-bold">Цена</div>
 				<div class="uk-flex">
@@ -46,41 +46,7 @@
 		        </div>
 			</div>
 			<div class="uk-card uk-card-default uk-card-body uk-width-3-4 uk-margin-remove" uk-grid>
-				<div class="uk-card uk-card-default uk-card-body uk-width-1-3">
-				    <div class="uk-card-badge uk-label">Badge</div>
-				    <h3 class="uk-card-title">Title</h3>
-				    <p>Lorem ipsum color sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
-				<div class="uk-card uk-card-default uk-card-body uk-width-1-3">
-				    <div class="uk-card-badge uk-label">Badge</div>
-				    <h3 class="uk-card-title">Title</h3>
-				    <p>Lorem ipsum color sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
-				<div class="uk-card uk-card-default uk-card-body uk-width-1-3">
-				    <div class="uk-card-badge uk-label">Badge</div>
-				    <h3 class="uk-card-title">Title</h3>
-				    <p>Lorem ipsum color sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
-				<div class="uk-card uk-card-default uk-card-body uk-width-1-3">
-				    <div class="uk-card-badge uk-label">Badge</div>
-				    <h3 class="uk-card-title">Title</h3>
-				    <p>Lorem ipsum color sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
-				<div class="uk-card uk-card-default uk-card-body uk-width-1-3">
-				    <div class="uk-card-badge uk-label">Badge</div>
-				    <h3 class="uk-card-title">Title</h3>
-				    <p>Lorem ipsum color sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
-				<div class="uk-card uk-card-default uk-card-body uk-width-1-3">
-				    <div class="uk-card-badge uk-label">Badge</div>
-				    <h3 class="uk-card-title">Title</h3>
-				    <p>Lorem ipsum color sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
-				<div class="uk-card uk-card-default uk-card-body uk-width-1-3">
-				    <div class="uk-card-badge uk-label">Badge</div>
-				    <h3 class="uk-card-title">Title</h3>
-				    <p>Lorem ipsum color sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
+				<card v-for="car in cars" v-bind:item="car"></card>
 			</div>
 		</div>
 	</div>
@@ -88,7 +54,7 @@
 
 <script src="js/uikit.min.js"></script>
 <script src="js/uikit-icons.min.js"></script>
-<script src="js/vue.min.js"></script>
+<script src="js/vue.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>
