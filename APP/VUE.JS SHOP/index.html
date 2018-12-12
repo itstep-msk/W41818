@@ -22,27 +22,20 @@
 	</nav>
 	<div class="uk-flex uk-margin-top">
 		<input class="uk-input" placeholder="Поиск товаров..." v-model="search">
-		<input type="submit" class="uk-button uk-button-default" value="Поиск">
 	</div>
 	<div class="uk-flex uk-margin-top">
 		<div class="uk-margin-remove uk-width-1-1" uk-grid>
 			<div class="uk-card uk-card-default uk-card-body uk-width-1-4">
 				<div class="uk-text-bold">Цена</div>
 				<div class="uk-flex">
-					<input class="uk-input" placeholder="Цена от...">
-					<input class="uk-input" placeholder="Цена до...">
+					<input class="uk-input" placeholder="Цена от..." type="number" v-model="price[0]">
+					<input class="uk-input" placeholder="Цена до..." type="number" v-model="price[1]">
 				</div>
 				<div class="uk-margin-top uk-text-bold">Бренды</div>
 		        <div class="uk-flex uk-flex-column">
-		        	<label><input class="uk-checkbox" type="checkbox"> BMW</label>
-		        	<label><input class="uk-checkbox" type="checkbox"> Mersedes</label>
-		        	<label><input class="uk-checkbox" type="checkbox"> Daewoo</label>
-		        	<label><input class="uk-checkbox" type="checkbox"> BMW</label>
-		        	<label><input class="uk-checkbox" type="checkbox"> Mersedes</label>
-		        	<label><input class="uk-checkbox" type="checkbox"> Daewoo</label>
-		        	<label><input class="uk-checkbox" type="checkbox"> BMW</label>
-		        	<label><input class="uk-checkbox" type="checkbox"> Mersedes</label>
-		        	<label><input class="uk-checkbox" type="checkbox"> Daewoo</label>
+		        	<label><input class="uk-checkbox" type="checkbox" value="bmw" v-model="brands"> BMW</label>
+		        	<label><input class="uk-checkbox" type="checkbox" value="mersedes" v-model="brands"> Mersedes</label>
+		        	<label><input class="uk-checkbox" type="checkbox" value="daewoo" v-model="brands"> Daewoo</label>
 		        </div>
 			</div>
 			<div class="uk-card uk-card-default uk-card-body uk-width-3-4 uk-margin-remove" uk-grid>
@@ -55,6 +48,7 @@
 <script src="js/uikit.min.js"></script>
 <script src="js/uikit-icons.min.js"></script>
 <script src="js/vue.js"></script>
+<script src="js/vue-router.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>
