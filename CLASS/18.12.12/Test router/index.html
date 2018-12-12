@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test router</title>
+</head>
+<body>
+
+<div id="app">
+	<router-link to="/apple">Ссылка на яблоки</router-link>
+    <router-link to="/orange">Ссылка на апельсины</router-link>
+
+    <router-view></router-view>
+</div>
+
+<script src="vue.js"></script>
+<script src="vue-router.js"></script>
+<script>
+	// Компоненты
+	var apple = { template: '<div>Текст про яблоки</div>' }
+	var orange = { template: '<div>Текст про апельсины</div>' }
+
+	// Связываем ссылки с компонентами
+	var myRoutes = [
+	  { path: '/apple', component: apple },
+	  { path: '/orange', component: orange }
+	]
+	// Инициализация VueRouter
+	var myRouter = new VueRouter({
+	  routes: myRoutes
+	})
+
+	var app = new Vue({
+		el: "#app",
+		router: myRouter
+	})
+</script>
+</body>
+</html>

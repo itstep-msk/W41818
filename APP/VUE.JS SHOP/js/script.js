@@ -1,3 +1,18 @@
+var home = { template: '<div>Текст про яблоки</div>' }
+var catalog = { template: '#catalog' }
+var about = { template: '<div>Текст про апельсины</div>' }
+
+// Связываем ссылки с компонентами
+var myRoutes = [
+	{ path: '/', component: home },
+	{ path: '/catalog', component: catalog },
+	{ path: '/about', component: about }
+]
+// Инициализация VueRouter
+var myRouter = new VueRouter({
+	routes: myRoutes
+})
+
 Vue.component("card", {
 	props: ["item"],
 	template:`
@@ -13,6 +28,18 @@ var carList = [
 		pic: "https://cars.imgsmail.ru/catalogue/generations/1/9/1941a19de86e9a409025eb37a42b73eb_240x150.png",
 		caption: "Daewoo nexia",
 		price: "100 000 P",
+		brand: "daewoo"
+	},
+	{
+		pic: "https://cars.imgsmail.ru/catalogue/generations/1/9/1941a19de86e9a409025eb37a42b73eb_240x150.png",
+		caption: "Daewoo nexia",
+		price: "50 000 P",
+		brand: "daewoo"
+	},
+	{
+		pic: "https://cars.imgsmail.ru/catalogue/generations/1/9/1941a19de86e9a409025eb37a42b73eb_240x150.png",
+		caption: "Daewoo matiz",
+		price: "200 000 P",
 		brand: "daewoo"
 	},
 	{
@@ -53,15 +80,23 @@ var app = new Vue({
 		cars: carList,
 		search: "",
 		brands: [],
-		price: []
+		price: [],
+		tempArray: []
 	},
+	router: myRouter,
 	watch: {
 		search: function() {
 			var self = this;
 
-			if(this.search == "") this.cars = carList;
+			if(this.search == "") {
+				this.cars = carList;
+			}
 
-			this.cars = carList.filter(function(item) {
+			if(this.tempArray.length == 0) {
+				this.tempArray = carList;
+			}
+
+			this.cars = this.tempArray.filter(function(item) {
 				var cardItem = item.caption.toLowerCase();
 				var searchItem = self.search.toLowerCase();
 
@@ -71,40 +106,54 @@ var app = new Vue({
 			})
 		},
 		brands: function() {
+			this.filter();
+		},
+		price: function() {
+			this.filter();
+		}
+	},
+	methods: {
+		filter: function() {
 			var self = this;
+			this.tempArray = [];
 
-			if(self.brands.length == 0) {
+			function findBrand() {
+				if(self.brands.length != 0) {
+					for(var i = 0; i < self.brands.length; i++) {
+						self.tempArray = self.tempArray.concat(self.cars.filter(function(item) {
+								if(self.brands[i] == item.brand) {
+									return true;
+								}
+							})
+						)
+					}
+
+					self.cars = self.tempArray;
+				}
+			}
+
+			function findPrice() {
+				self.cars = carList.filter(function(item) {
+					var priceFrom = +self.price[0] || 0;
+					var priceTo = +self.price[1] || Number.MAX_VALUE;
+					var priceCar = +item.price.replace(/\D/gi,"");
+
+					if(priceFrom <= priceCar && priceTo >= priceCar && priceTo > priceFrom) {
+						return true;
+					}
+				})
+			}
+
+			if(self.price.length == 0/* && self.brands.length == 0 && this.search == ""*/) {
 				self.cars = carList;
+
+				findBrand()
+
 			} else {
 				self.cars = [];
 
-				for(var i = 0; i < self.brands.length; i++) {
-					self.cars = self.cars.concat(carList.filter(function(item) {
-							if(self.brands[i] == item.brand) {
-								return true;
-							}
-						})
-					)
-				}
-			}
-		},
-		price: function() {
-			var self = this;
-
-			if(self.price.length == 0) {
-				self.cars = carList;
-			} else {
-				for(var i = 0; i < self.price.length; i++) {
-					self.cars = carList.filter(function(item) {
-						var priceFrom = +self.price[0] || 0;
-						var priceTo = +self.price[1] || Number.MAX_VALUE;
-						var priceCar = +item.price.replace(/\D/gi,"");
-
-						if(priceFrom <= priceCar && priceTo >= priceCar && priceTo > priceFrom) {
-							return true;
-						}
-					})
-				}
+				findPrice();
+				findBrand();
 			}
 		}
 	}
