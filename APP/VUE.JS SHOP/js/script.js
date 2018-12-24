@@ -1,6 +1,6 @@
-var home = { template: '<div>Текст про яблоки</div>' }
+var home = { template: '#home' }
 var catalog = { template: '#catalog' }
-var about = { template: '<div>Текст про апельсины</div>' }
+var about = { template: '#about' }
 
 // Связываем ссылки с компонентами
 var myRoutes = [
@@ -14,12 +14,39 @@ var myRouter = new VueRouter({
 })
 
 Vue.component("card", {
-	props: ["item"],
+	props: ["item","index"],
+	methods: {
+		getIndex: function(i) {
+			var cart = this.$root.cart;
+			var resulution = false;
+			var indexEl;
+
+			if(cart.length <= 0) {
+				 cart.push({id: i, count: 0});
+			} else {
+				cart.forEach(function(item, index){
+					if(item.id == i) {
+						resulution = true;
+						indexEl = index;
+						return;
+					}
+				})
+				
+				if(resulution) {
+					cart[indexEl].count++;
+				} else {
+					cart.push({id: i, count: 0});
+				}
+			}
+			console.log(cart)
+		}
+	},
 	template:`
 		<div class="uk-card uk-card-default uk-card-body uk-width-1-3">
 			<div class="uk-width-1-1 uk-height-small uk-background-contain" v-bind:style="'background-image: url(' + item.pic + ')'"></div>
 			<h3 class="uk-card-title">{{ item.caption }}</h3>
 			<p>{{ item.price }}</p>
+			<input type="submit" value="Купить" class="uk-align-right uk-button uk-button-default" @click="getIndex(index)">
 		</div>`
 })
 
@@ -81,7 +108,8 @@ var app = new Vue({
 		search: "",
 		brands: [],
 		price: [],
-		tempArray: []
+		tempArray: [],
+		cart: []
 	},
 	router: myRouter,
 	watch: {

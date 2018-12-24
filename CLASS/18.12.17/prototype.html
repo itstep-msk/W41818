@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Прототипы</title>
+</head>
+<body>
+
+<script>
+	var obj01 = {};
+	// Есть классы: Object, Array, Number, String, Boolean, Function
+	// obj01 = Object.prototype
+	var obj02 = new Object();
+	// Новый способ
+	var obj03 = Object.create(Object);
+	var n = 123.456;
+	console.log(typeof n.toFixed()); // string
+	
+	Number.prototype.myToFixed = function() {
+		return +this.toFixed();
+	}
+
+	console.log(typeof n.myToFixed()); // number
+
+	// ПРОТОТИП
+
+	var animal = {
+		eats: true
+	}
+
+	var rabbit = {
+		jumps: true
+	}
+
+	rabbit.__proto__ = animal;
+
+	console.log(rabbit.jumps) // true
+	console.log(rabbit.eats) // true
+	console.log(rabbit.hasOwnProperty("eats")) // false
+	console.log(rabbit.hasOwnProperty("jumps")) // true
+	console.log(animal.isPrototypeOf(rabbit)) // true
+
+	Object.prototype.toString.call([1,2,3]) // [object Array];
+
+	// У нас есть скрытое свойство класс, к которому обращаются в toString
+	/*
+		toString = function() {
+			return this.[[Class]] // [object Object]
+		}
+	*/
+</script>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+<script>
+	function fruits() {
+		var a = 10;
+
+		return function() {
+			return a;
+		}
+	}
+
+	var apple = fruits() // function() {return a;}
+
+	console.log(apple()); // 10
+</script>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Game</title>
+</head>
+<body>
+
+<style>
+	#game {
+		border: 1px solid;
+		display: block;
+		margin: 0 auto;
+	}
+</style>
+
+<canvas id="game" width="1500" height="800"></canvas>
+
+<script>
+	var canvas = document.getElementById("game");
+	var ctx = canvas.getContext("2d");
+	var posEnemy = [canvas.width];
+	var posMoney = [canvas.width];
+
+	var enemy = new Image();
+	var money = new Image();
+
+	enemy.src = "enemy.png";
+	money.src = "money.jpg";
+
+	function draw() {
+		ctx.clearRect(0,0, canvas.width, canvas.height);
+
+		
+		
+		for(var i = 0; i < posEnemy.length; i++) {
+			if(posEnemy[i] == 700) {
+				posEnemy.push(canvas.width);
+			}
+			posEnemy[i]-=10;
+			ctx.drawImage(enemy, posEnemy[i], canvas.height - enemy.height);
+		}
+
+		for(var i = 0; i < posMoney.length; i++) {
+			if(posMoney[i] == 500) {
+				posMoney.push(canvas.width);
+			}
+			posMoney[i]-=10;
+			ctx.drawImage(money, posMoney[i], canvas.height - 200, 200, 100);
+		}
+
+		requestAnimationFrame(draw);
+	}
+
+	money.onload = draw;
+
+
+</script>
+
+</body>
+</html>

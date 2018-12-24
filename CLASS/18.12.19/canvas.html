@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Canvas</title>
+</head>
+<body>
+
+<style>
+	canvas {
+		border: 1px solid;
+		display: block;
+		margin: 0 auto;
+	}
+</style>
+
+<canvas id="game" width="1000px" height="500px"></canvas>
+
+<script>
+	var canvas = document.getElementById("game");
+	var ctx = canvas.getContext("2d");
+	var x = 0;
+	var y = 0;
+
+	ctx.fillStyle = "lime";
+
+	document.addEventListener("keydown", function(e) {
+		switch(e.keyCode) {
+			case 38:
+				y--;
+				break;
+			case 40:
+				y++
+				break;
+			case 37:
+				x--;
+				break;
+			case 39:
+				x++;
+				break;
+		}
+		// Очистка
+		//ctx.clearRect(0,0,canvas.width, canvas.height)
+		// Отрисовка
+		//ctx.fillRect(x,y,50,50);
+	})
+
+	ctx.beginPath();
+    ctx.arc(50, 50, 20, 0, Math.PI);
+    ctx.fillStyle = 'green';
+    ctx.fill();
+    ctx.stroke();
+</script>
+
+</body>
+</html>
