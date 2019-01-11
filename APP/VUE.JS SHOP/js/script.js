@@ -1,12 +1,14 @@
 var home = { template: '#home' }
 var catalog = { template: '#catalog' }
 var about = { template: '#about' }
+var cart = { template: '#cart' }
 
 // Связываем ссылки с компонентами
 var myRoutes = [
 	{ path: '/', component: home },
 	{ path: '/catalog', component: catalog },
-	{ path: '/about', component: about }
+	{ path: '/about', component: about },
+	{ path: '/cart', component: cart }
 ]
 // Инициализация VueRouter
 var myRouter = new VueRouter({
@@ -47,6 +49,21 @@ Vue.component("card", {
 			<h3 class="uk-card-title">{{ item.caption }}</h3>
 			<p>{{ item.price }}</p>
 			<input type="submit" value="Купить" class="uk-align-right uk-button uk-button-default" @click="getIndex(index)">
+		</div>`
+})
+
+Vue.component("cart-item", {
+	props: ["item"],
+	template: `
+		<div class="uk-card uk-card-default uk-card-body uk-width-1-1 uk-margin-top">
+			<img v-bind:src="this.$root.carList[item.id].pic" width="100px">
+			<div class="uk-flex-inline uk-flex-wrap uk-text-middle uk-margin-medium-left">
+				<div class="uk-width-1-1">{{ this.$root.carList[item.id].caption }}</div>
+				<div class="uk-width-1-1">{{ this.$root.carList[item.id].price }}</div>
+			</div>
+			<div class="uk-flex uk-height-1-1 uk-align-right uk-flex-middle">
+				<a href="#" uk-icon="icon: close"></a>
+			</div>
 		</div>`
 })
 
@@ -105,6 +122,7 @@ var app = new Vue({
 	el: "#app",
 	data: {
 		cars: carList,
+		carList: carList,
 		search: "",
 		brands: [],
 		price: [],

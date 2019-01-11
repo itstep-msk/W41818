@@ -100,6 +100,19 @@
 		
 	</template>
 
+	<template id="cart">
+		<div>
+			<h3 class="uk-margin-top">Количество товара: 10</h3>
+			<div class="uk-flex uk-flex-wrap">
+				<cart-item v-for="cart in $router.app.cart" v-bind:item="cart"></cart-item>
+			</div>
+			<div class="uk-flex uk-flex-between uk-margin-medium-top uk-margin-medium-bottom uk-flex-middle">
+				<div class="uk-text-large">Итог: 999.99</div>
+				<div class="uk-button uk-button-primary">Оформить</div>
+			</div>
+		</div>
+	</template>
+
 	<script src="js/uikit.min.js"></script>
 	<script src="js/uikit-icons.min.js"></script>
 	<script src="js/vue.js"></script>
