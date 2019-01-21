@@ -24,7 +24,7 @@ Vue.component("card", {
 			var indexEl;
 
 			if(cart.length <= 0) {
-				 cart.push({id: i, count: 0});
+				 cart.push({id: i, count: 1});
 			} else {
 				cart.forEach(function(item, index){
 					if(item.id == i) {
@@ -37,7 +37,7 @@ Vue.component("card", {
 				if(resulution) {
 					cart[indexEl].count++;
 				} else {
-					cart.push({id: i, count: 0});
+					cart.push({id: i, count: 1});
 				}
 			}
 			console.log(cart)
@@ -53,16 +53,22 @@ Vue.component("card", {
 })
 
 Vue.component("cart-item", {
-	props: ["item"],
+	props: ["item", "index"],
+	methods: {
+		removeGoods: function(i) {
+			this.$root.cart.splice(i, 1);
+		}
+	},
 	template: `
 		<div class="uk-card uk-card-default uk-card-body uk-width-1-1 uk-margin-top">
 			<img v-bind:src="this.$root.carList[item.id].pic" width="100px">
+			<div class="uk-display-inline-block uk-margin-medium-left">{{ item.count }}</div>
 			<div class="uk-flex-inline uk-flex-wrap uk-text-middle uk-margin-medium-left">
 				<div class="uk-width-1-1">{{ this.$root.carList[item.id].caption }}</div>
 				<div class="uk-width-1-1">{{ this.$root.carList[item.id].price }}</div>
 			</div>
 			<div class="uk-flex uk-height-1-1 uk-align-right uk-flex-middle">
-				<a href="#" uk-icon="icon: close"></a>
+				<button href="#" uk-icon="icon: close" v-on:click="removeGoods(index)"></button>
 			</div>
 		</div>`
 })
@@ -190,7 +196,7 @@ var app = new Vue({
 				})
 			}
 
-			if(self.price.length == 0/* && self.brands.length == 0 && this.search == ""*/) {
+			if(self.price.length == 0) {
 				self.cars = carList;
 
 				findBrand()
@@ -201,6 +207,28 @@ var app = new Vue({
 				findPrice();
 				findBrand();
 			}
+		}
+	},
+	computed: {
+		getCountGoods: function () {
+			var count = 0;
+
+			this.cart.forEach(function(item) {
+				count += item.count;
+			})
+
+			return count;
+		},
+		getPriceGoods: function() {
+			var price = 0;
+
+			this.cart.forEach(function(item) {
+				price += +this.carList[item.id].price.replace(/\D/gi,"") * item.count;
+			})
+
+			return String(price).replace(/./g, function(l, i, s) {
+				return (s.length - i) % 3 == 0 ? " " + l : l;
+			});
 		}
 	}
 })

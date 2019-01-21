@@ -19,7 +19,9 @@
 			</div>
 			<div class="uk-navbar-right uk-margin-small-right">
 				<router-link to="/cart">
-					<span uk-icon="icon: cart; ratio: 2">{{ cart.length }}</span>
+					<span uk-icon="icon: cart; ratio: 2">
+						<span class="uk-text-middle uk-text-large">{{ cart.length }}</span>
+					</span>
 				</router-link>
 			</div>
 		</nav>
@@ -102,13 +104,18 @@
 
 	<template id="cart">
 		<div>
-			<h3 class="uk-margin-top">Количество товара: 10</h3>
-			<div class="uk-flex uk-flex-wrap">
-				<cart-item v-for="cart in $router.app.cart" v-bind:item="cart"></cart-item>
+			<div v-if="$router.app.getCountGoods > 0">
+				<h3 class="uk-margin-top">Количество товара: {{ $router.app.getCountGoods }}</h3>
+				<div class="uk-flex uk-flex-wrap">
+					<cart-item v-for="(cart, index) in $router.app.cart" v-bind:item="cart" v-bind:index="index"></cart-item>
+				</div>
+				<div class="uk-flex uk-flex-between uk-margin-medium-top uk-margin-medium-bottom uk-flex-middle">
+					<div class="uk-text-large">Итог: {{ $router.app.getPriceGoods }} рублей.</div>
+					<div class="uk-button uk-button-primary">Оформить</div>
+				</div>
 			</div>
-			<div class="uk-flex uk-flex-between uk-margin-medium-top uk-margin-medium-bottom uk-flex-middle">
-				<div class="uk-text-large">Итог: 999.99</div>
-				<div class="uk-button uk-button-primary">Оформить</div>
+			<div v-else>
+				<h3 class="uk-margin-large-top uk-text-center">Товары отсутствуют</h3>
 			</div>
 		</div>
 	</template>
