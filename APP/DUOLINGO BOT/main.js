@@ -298,6 +298,7 @@ var answersList = {
 		"Она является женщиной.":"She is a woman",
 		"Она пьёт.": "She drinks",
 		"Он ест.": "He eats",
+		"Он пьёт.": "He drinks",
 		"Я являюсь мужчиной.":"I am a man",
 		"Я являюсь женщиной.": "I am a woman",
 		"женщина": "a woman",
