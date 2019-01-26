@@ -163,6 +163,7 @@ var answersList = {
 		"___ I a boy?": "Am",
 		"___ I a girl?": "Am",
 		"I ___ a woman.":"am",
+		"I ___ a man.": "am",
 		"I ___.": "eat",
 		"I ___ an apple.": "eat",
 		"She ___.": "eats",
