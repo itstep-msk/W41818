@@ -183,8 +183,11 @@ var answersList = {
 	"challenge challenge-judge": {
 		"Она ест.": "She eats.",
 		"Она ест хлеб.": "She eats bread.",
+		"Он ест хлеб.": "He eats bread.",
 		"Он ест.": "He eats.",
 		"Он пьёт.": "He drinks.",
+		"Он пьёт воду.": "He drinks water.",
+		"Я пью воду.": "I drink water.",
 		"Эта девочка пьёт воду.": "The girl drinks water.",
 		"Эта девочка ест.": "The girl eats.",
 		"Эта девочка ест яблоко.": "The girl eats an apple.",
@@ -205,10 +208,7 @@ var answersList = {
 		"Этот мальчик ест яблоко.": "The boy eats an apple.",
 		"Он является мужчиной.": "He is a man.",
 		"Am I a ___?": "woman",
-		"Я пью воду.": "I drink water.",
-		"Он пьёт воду.": "He drinks water.",
 		"Он ест яблоко.": "He is eating an apple.",
-		"Он ест хлеб.": "He eats bread.",
 		"Я пью.": "I drink.",
 		"Я ем.": "I eat.",
 		"Она пьёт.": "She drinks.",
@@ -224,7 +224,8 @@ var answersList = {
 		"Она является женщиной.": "She is a woman.",
 		"Я являюсь женщиной.": "I am a woman.",
 		"Я являюсь мужчиной, а она является женщиной.": "I am a man and she is a woman.",
-		"Я являюсь мужчиной.": "I am a man."
+		"Я являюсь мужчиной.": "I am a man.",
+		"Он - тот самый мальчик.": "He is the boy."
 	},
 	"challenge challenge-translate": {
 		"an apple":"яблоко",
