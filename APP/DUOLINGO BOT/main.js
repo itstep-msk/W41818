@@ -298,6 +298,7 @@ var answersList = {
 		"He eats an apple.": "Он ест яблоко",
 		"Я пью.": "I drink",
 		"Мужчина":"a man",
+		"Этот мужчина ест.": "The man eats.",
 		"Я пью воду":"I drink water",
 		"Она ест.":"She eats",
 		"яблоко":"an apple",
