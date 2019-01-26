@@ -320,6 +320,7 @@ var answersList = {
 		"девочка":"a girl",
 		"вода": "water",
 		"Я ем.": "I eat",
+		"Я пью и ем.": "I drink and eat.",
 		"Я ем яблоко.": "I eat an apple",
 		"Я ем хлеб.": "I eat bread.",
 		"Он - тот самый мальчик.": "He is the boy",
