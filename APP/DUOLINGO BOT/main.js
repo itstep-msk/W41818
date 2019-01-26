@@ -24,7 +24,9 @@ var secondaryButtonID = setInterval(function() {
 }, 100);
 
 var challengeTimerID = setInterval(function challenger() {
-
+setTimeout(function() {
+	window.location.href = "https://www.duolingo.com";
+}, 600000)
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 lesson = document.querySelector('[data-test="skill-tree"]');
