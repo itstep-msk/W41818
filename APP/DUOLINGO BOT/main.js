@@ -318,6 +318,7 @@ var answersList = {
 		"девочка":"a girl",
 		"вода": "water",
 		"Я ем.": "I eat",
+		"Я ем яблоко.": "I eat an apple",
 		"Я являюсь мужчиной, а она является женщиной.": "I am a man and she is a woman."
 	}
 }
