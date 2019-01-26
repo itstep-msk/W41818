@@ -323,6 +323,7 @@ var answersList = {
 		"Я ем яблоко.": "I eat an apple",
 		"Я ем хлеб.": "I eat bread.",
 		"Он - тот самый мальчик.": "He is the boy",
+		"Я - та самая девочка.": "I am the girl",
 		"Я являюсь мужчиной, а она является женщиной.": "I am a man and she is a woman."
 	}
 }
