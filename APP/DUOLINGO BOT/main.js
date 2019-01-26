@@ -231,7 +231,8 @@ var answersList = {
 		"Я являюсь женщиной.": "I am a woman.",
 		"Я являюсь мужчиной, а она является женщиной.": "I am a man and she is a woman.",
 		"Я являюсь мужчиной.": "I am a man.",
-		"Он - тот самый мальчик.": "He is the boy."
+		"Он - тот самый мальчик.": "He is the boy.",
+		"Я - та самая девочка.": "I am the girl."
 	},
 	"challenge challenge-translate": {
 		"an apple":"яблоко",
