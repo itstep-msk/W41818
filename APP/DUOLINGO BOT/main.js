@@ -216,6 +216,7 @@ var answersList = {
 		"Она пьёт воду.": "She drinks water.",
 		"Эта женщина ест.": "The woman eats.",
 		"Эта женщина пьёт воду.": "The woman drinks water.",
+		"Эта женщина пьёт.": "The woman drinks.",
 		"Эта женщина ест яблоко.": "The woman eats an apple.",
 		"Этот мужчина пьёт.": "The man drinks.",
 		"Этот мужчина ест.": "The man eats.",
