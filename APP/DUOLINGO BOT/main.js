@@ -186,7 +186,7 @@ var answersList = {
 		"Он пьёт.": "He drinks.",
 		"Эта девочка пьёт воду.": "The girl drinks water.",
 		"Эта девочка ест.": "The girl eats.",
-		"Эта девочка ест яблоко.": "Эта девочка ест яблоко.",
+		"Эта девочка ест яблоко.": "The girl eats an apple.",
 		"Этот мальчик пьёт воду.": "The boy drinks water.",
 		"Я ем яблоко.": "I eat an apple.",
 		"Я ем хлеб.": "I eat bread.",
