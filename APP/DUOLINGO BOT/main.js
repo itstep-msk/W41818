@@ -321,6 +321,7 @@ var answersList = {
 		"Я ем.": "I eat",
 		"Я ем яблоко.": "I eat an apple",
 		"Я ем хлеб.": "I eat bread.",
+		"Он - тот самый мальчик.": "He is the boy",
 		"Я являюсь мужчиной, а она является женщиной.": "I am a man and she is a woman."
 	}
 }
