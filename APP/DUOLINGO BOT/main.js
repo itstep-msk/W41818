@@ -203,6 +203,7 @@ var answersList = {
 		"мужчина": "a man",
 		"женщина": "a woman",
 		"яблоко": "an apple",
+		"водаы": "Water",
 		"Am I a ___?": "woman",
 		"Я пью.": "I drink.",
 		"Я ем.": "I eat.",
@@ -319,6 +320,7 @@ var answersList = {
 		"вода": "water",
 		"Я ем.": "I eat",
 		"Я ем яблоко.": "I eat an apple",
+		"Я ем хлеб.": "I eat bread.",
 		"Я являюсь мужчиной, а она является женщиной.": "I am a man and she is a woman."
 	}
 }
