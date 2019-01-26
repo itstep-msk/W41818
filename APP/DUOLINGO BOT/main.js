@@ -194,6 +194,7 @@ var answersList = {
 		"Я ем яблоко.": "I eat an apple.",
 		"Я ем хлеб.": "I eat bread.",
 		"Я - мальчик.": "I am a boy.",
+		"Я - та самая женщина.": "I am the woman.",
 		"женщина и яблоко": "a woman and an apple",
 		"Я ем и пью.": "I eat and drink.",
 		"Я пью и ем.": "I drink and eat.",
