@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chat</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+<input class="nick" placeholder="Имя...">
+<input class="message" placeholder="Сообщение...">
+<input type="submit" class="button" value="SEND">
+<div class="chat"></div>
+
+<script src="jquery-3.3.1.min.js"></script>
+<script>
+	var message = $(".message");
+	var nick = $(".nick");
+	var button = $(".button");
+	var chat = $(".chat");
+
+	button.on("click", function() {
+		if(message.val() != "" && nick.val() != "") {
+			$.ajax({
+				url: "chat-send.php",
+				type: "POST",
+				data: { "message": message.val(), "nick": nick.val() }
+			})
+
+			message.val("");
+		}
+	})
+
+	setInterval(function() {
+		$.ajax({
+			url: "chat-get.php",
+			success: function(messages) {
+				chat.html(messages);
+			}
+		})
+	}, 1000)
+</script>
+
+</body>
+</html>

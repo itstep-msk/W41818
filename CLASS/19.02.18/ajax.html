@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AJAX (Asynchronous Javascript And Xml)</title>
+</head>
+<body>
+
+<script src="jquery-3.3.1.min.js"></script>
+<script>
+	/*
+	$(".class").html().addClass("earth");
+
+	$.getJSON("http://site.ru/file.json", function() { /.../ })
+
+	$.ajax({ /.../ })
+
+	*/
+
+	$.ajax({
+		url: "data.php",
+		type: "POST",
+		data: { "apple": 10, "orange": 20 }, // apple=10&orange=20
+		success: function(bryak) {
+			console.log(bryak);
+		}
+	})
+</script>
+</body>
+</html>
