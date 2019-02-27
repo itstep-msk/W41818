@@ -1,23 +1,3 @@
-<? header('Content-Type: text/html; charset=utf-8'); ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Регистрация</title>
-	<meta charset="utf-8">
-</head>
-<body>
-<style>
-	.checkField {
-		border: 1px solid grey;
-		transition: all, .25s;
-		outline: none;
-		padding: 2px;
-	}
-	.emptyField {
-		border-color: red;
-	}
-</style>
-
 <h1>Регистрация</h1>
 <form action="" method="POST" class="form">
 	<input class="login checkField" type="text" name="login" placeholder="Логин"><br>
@@ -25,7 +5,7 @@
 	<input class="password_2 checkField" type="password" name="password_2" placeholder="Еще раз пароль"><br>
 	<input class="button" type="submit" value="Зарегистрироваться">
 </form>
-<!-- PHP -->
+
 <?
 	$login = $_POST["login"];
 	$password_1 = $_POST["password_1"];
@@ -68,7 +48,7 @@
 	}
 
 ?>
-<!-- JAVASCRIPT -->
+
 <script>
 	var login = document.querySelector(".login");
 	var password_1 = document.querySelector(".password_1");
@@ -94,5 +74,3 @@
 		
 	})
 </script>
-</body>
-</html>

@@ -1,22 +1,3 @@
-<? session_start(); // Запускаем сессию
-header('Content-Type: text/html; charset=utf-8'); 
-?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Авторизация</title>
-	<meta charset="utf-8">
-</head>
-<body>
-<style>
-	.field {
-		border: 1px solid grey;
-		transition: all, .25s;
-		outline: none;
-		padding: 2px;
-	}
-</style>
-
 <h1>Авторизация</h1>
 <form action="" method="POST">
 	<input class="field" type="text" name="login" placeholder="Логин"><br>
@@ -42,5 +23,3 @@ header('Content-Type: text/html; charset=utf-8');
 		}
 	}
 ?>
-</body>
-</html>
