@@ -1,3 +1,4 @@
+<? header('Content-Type: text/html; charset=utf-8'); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,22 +39,31 @@
 		&& ($password_1 == $password_2)) {
 
 		if(checkData()) {
-			//addData();
-			echo "Такого аккаунта НЕТ";
+			addData();
+			echo "Успешная регистрация";
 		} else {
 			echo "Такой аккаунт уже есть...";
 		}
 	}
 
+	function addData() {
+		global $login;
+		global $password_1;
+
+		mysql_query("INSERT INTO users(login, password) VALUES('$login', '$password_1')");
+	}
+
 	function checkData() {
 		global $login;
 
-		$query = mysql_query("SELECT login FROM users WHERE login = $login");
+		$query = mysql_query("SELECT login FROM users WHERE login = '$login'");
 
-		if($query) {
-			return true;
-		} else {
+		$result = mysql_fetch_array($query, MYSQL_ASSOC);
+
+		if($result) {
 			return false;
+		} else {
+			return true;
 		}
 	}
 
