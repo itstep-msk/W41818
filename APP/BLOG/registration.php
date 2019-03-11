@@ -1,9 +1,9 @@
-<h1>Регистрация</h1>
+<h2 class="uk-modal-title">Регистрация</h2>
 <form action="" method="POST" class="form">
-	<input class="login checkField" type="text" name="login" placeholder="Логин"><br>
-	<input class="password_1 checkField" type="password" name="password_1" placeholder="Пароль"><br>
-	<input class="password_2 checkField" type="password" name="password_2" placeholder="Еще раз пароль"><br>
-	<input class="button" type="submit" value="Зарегистрироваться">
+	<input class="login checkField uk-input" type="text" name="login" placeholder="Логин"><br>
+	<input class="password_1 checkField uk-input uk-margin-top" type="password" name="password_1" placeholder="Пароль"><br>
+	<input class="password_2 checkField uk-input uk-margin-top" type="password" name="password_2" placeholder="Еще раз пароль"><br>
+	<input class="button uk-button uk-button-default uk-margin-top" type="submit" value="Зарегистрироваться">
 </form>
 
 <?
