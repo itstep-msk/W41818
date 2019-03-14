@@ -3,6 +3,7 @@ var field = doc.querySelector(".field");
 var clientId = doc.querySelector(".client-id");
 var connection = doc.querySelector(".connection");
 var server = new XMLHttpRequest;
+var timer;
 var player = {
 	el: doc.querySelector(".player"),
 	move: function (x, y) {
@@ -24,13 +25,11 @@ field.addEventListener("click", function(e) {
 	player.x2 = x;
 	player.y2 = y;
 	player.resolution = true;
-	//player.move(x, y);
-	//serverSend(x, y, player.id);
-	//serverReceive();
+	clearInterval(timer);
 })
 
-function serverSend(x, y, id) {
-	server.open("GET", "http://localhost/19.03.06/RPG_GAME/server/server.php?id=" + id + "&x=" + x + "&y=" + y, true);
+function serverSend(x1, y1, x2, y2, id) {
+	server.open("GET", "http://localhost/19.03.06/RPG_GAME/server/server.php?id=" + id + "&x1=" + x1 + "&y1=" + y1 + "&x2=" + x2 + "&y2=" + y2, true);
 	server.send();
 }
 
@@ -44,36 +43,37 @@ function serverReceive() {
 			clients = JSON.parse(server.responseText);
 			for(client in clients) {
 				if(client != "id_" + player.id) {
-					//console.log(clients[client])
+					
 					var el = document.querySelector(".id_" + player.id);
 					
 					if(el) {
-						el.style.left = clients[client].x + "px";
-						el.style.top = clients[client].y + "px";
+						el.style.left = clients[client].x2 + "px";
+						el.style.top = clients[client].y2 + "px";
 					} else {
 						el = doc.createElement("div");
 						el.classList.add("id_" + player.id);
-						el.style.cssText = "width:30px;height:30px;background:red;position: absolute;transition:all 5s linear;";
-						el.style.left = clients[client].x + "px";
-						el.style.top = clients[client].y + "px";
+						el.classList.add("anotherPlayer");
+						el.style.left = clients[client].x2 + "px";
+						el.style.top = clients[client].y2 + "px";
 						field.appendChild(el);
 					}
 				}
 			}
 
-			x = JSON.parse(server.responseText)["id_" + player.id].x;
-			y = JSON.parse(server.responseText)["id_" + player.id].y;
+			var x1 = Number(JSON.parse(server.responseText)["id_" + player.id].x1);
+			var y1 = Number(JSON.parse(server.responseText)["id_" + player.id].y1);
+			var x2 = Number(JSON.parse(server.responseText)["id_" + player.id].x2);
+			var y2 = Number(JSON.parse(server.responseText)["id_" + player.id].y2);
 			
-			//player.move(x, y);
 			if(player.resolution) {
-				drawLine(player.x1,player.y1,player.x2,player.y2);
+				drawLine(x1,y1,x2,y2, player);
 			}
 		}
 	}
 }
 
 function clientStatus() {
-	serverSend(player.x, player.y, player.id);
+	serverSend(player.x1, player.y1, player.x2, player.y2, player.id);
 	serverReceive();
 }
 
@@ -83,15 +83,15 @@ connection.addEventListener("click", function() {
 	setInterval(clientStatus, 10);
 })
 
-function drawLine(x1, y1, x2, y2) {
+function drawLine(x1, y1, x2, y2, object) {
 	var deltaX = Math.abs(x2 - x1);
 	var deltaY = Math.abs(y2 - y1);
 	var signX = x1 < x2 ? 1 : -1;
 	var signY = y1 < y2 ? 1 : -1;
 	var error = deltaX - deltaY;
-	player.resolution = false;
+	object.resolution = false;
 
-	var timer = setInterval(function() {
+	timer = setInterval(function() {
 		if(x1 != x2 || y1 != y2) 
 		{
 			var error2 = error * 2;
@@ -100,18 +100,18 @@ function drawLine(x1, y1, x2, y2) {
 			{
 				error -= deltaY;
 				x1 += signX;
-				player.x1 = x1;
+				object.x1 = x1;
 			}
 			if(error2 < deltaX) 
 			{
 				error += deltaX;
 				y1 += signY;
-				player.y1 = y1;
+				object.y1 = y1;
 			}
-			player.move(player.x1, player.y1);
+
+			object.move(object.x1, object.y1);
 		} else {
 			clearInterval(timer);
-			//player.resolution = true;
 		}
 	}, 10);
 }
