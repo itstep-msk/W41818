@@ -1,0 +1,38 @@
+body {
+	margin: 0;
+	overflow: hidden;
+}
+
+.brick {
+	width: 20px;
+	height: 20px;
+	background: red;
+	position: absolute;
+}
+
+.chicken {
+	width: 200px;
+	height: 200px;
+	background-image: url("chicken.png");
+	background-size: cover;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+.egg {
+    width: 35px;
+    height: 26px;
+    background-image: url("egg.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
