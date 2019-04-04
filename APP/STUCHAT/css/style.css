@@ -64,6 +64,7 @@ input {
     bottom: 0;
     width: 100%;
     display: flex;
+    z-index: 1;
 }
 
 .text {
@@ -78,9 +79,20 @@ input {
 .send {
     width: 100px;
     box-sizing: border-box;
-    background: none;
+    background: #fff;
     border: 1px solid #dcdcdc;
     outline: none;
     padding: 10px 10px;
     cursor: pointer;
+}
+
+.messages {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding-bottom: 42px;
+}
+
+.row {
+    padding: 2px 15px;
 }
