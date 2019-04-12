@@ -26,6 +26,7 @@ input {
 	transform: translate(-50%,-50%);
 	margin-top: 50vh;
 	margin-left: 50%;
+    display: none;
 }
 .room {
 	width: 100%;

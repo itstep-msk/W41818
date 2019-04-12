@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Client socket</title>
+</head>
+<body>
+	
+<input type="text" class="message">
+<input type="submit" value="SEND" class="button">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+<script>
+	var socket = io.connect("http://127.0.0.1:7777");
+	var message = document.querySelector(".message");
+	var button = document.querySelector(".button");
+
+	button.addEventListener("click", function() {
+		socket.emit("clientEvent", message.value);
+	})
+	
+	socket.on("serverEvent", function(data) {
+		console.log(data);
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Paint</title>
+</head>
+<body>
+<style>
+	body {
+		margin: 0;
+	}
+	svg {
+		width: 100%;
+		height: calc(100vh - 5px);
+	}
+</style>
+<svg>
+	<polyline points="" stroke="black" fill="none">
+</svg>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+<script>
+	var socket = io.connect("http://127.0.0.1:7777");
+	var svg = document.querySelector("svg");
+	var polyline = document.querySelector("polyline");
+	var coords = "";
+
+	svg.addEventListener("mousemove", function(e) {
+		coords += e.x + "," + e.y + " "; // "10,10 20,20 30,30"
+		//polyline.setAttribute("points", coords);
+		socket.emit("clientEvent", coords);
+	})
+
+	socket.on("serverEvent", function(data) {
+		polyline.setAttribute("points", data);
+	})
+</script>
+</body>
+</html>
