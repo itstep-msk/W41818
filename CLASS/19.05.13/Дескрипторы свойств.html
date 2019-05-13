@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Дескрипторы свойств</title>
+</head>
+<body>
+
+<script>
+	// Object, var o = new Object
+	var fruits = {
+		apple: 10,
+		orange: 20
+	}
+
+	watch(fruits, function() {
+		console.log("...from custom callback");
+	});
+
+	//fruits.apple = 20; // 20,...watch property
+
+	function watch(object, callback) {
+		var keys = Object.keys(object);
+		var key;
+		console.log(keys) // ["apple", "orange"]
+		
+		function tracking() {
+			callback()
+			console.log("...watch property");
+		}
+
+		for(var i = 0; i < keys.length; i++) {
+			key = keys[i];
+			object["_" + key] = object[key];
+
+			Object.defineProperty(object, "_" + key, {
+				enumerable: false
+			})
+
+			Object.defineProperty(object, key, {
+				get: function() {
+					tracking();
+					return this["_" + key];
+				},
+				set: function(value) {
+					tracking();
+					this["_" + key] = value;
+					return this["_" + key];
+				}
+			})
+		}
+		console.log(object) // {apple: 10, orange: 20, _apple: 10, _orange: 20}
+
+	}
+	//////////////////////////
+	var cars = {
+		bmw: 1
+	}
+
+	Object.defineProperty(cars, "bmw", {
+		value: 2,
+		enumerable: false,
+		configurable: false,
+		writable: false
+	})
+
+	console.log(cars)
+	//////////////////////////// GETTER SETTER
+
+	var weapon = {
+		ak47: 10
+	}
+
+	Object.defineProperty(weapon, "ak47", {
+		get: function() {
+			return this["_ak47"]
+		},
+		set: function(value) {
+			this["_ak47"] = value;
+		}
+	})
+
+	weapon.ak47 = 20
+	console.log(weapon.ak47) // 20
+</script>
+
+</body>
+</html>
